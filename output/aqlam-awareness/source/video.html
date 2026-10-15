@@ -5,65 +5,63 @@
 <style>
 @font-face{font-family:Cairo;font-weight:600;src:url(../brand/fonts/Cairo600.ttf)}
 @font-face{font-family:Cairo;font-weight:900;src:url(../brand/fonts/Cairo900.ttf)}
-:root{--y:#F5B700;--n:#0B1E3A;--n2:#12305a;--w:#ffffff;--red:#e5484d;--green:#2fbf71}
+:root{--g:#46B977;--dk:#0C3322;--ink:#0C3322;--w:#ffffff;--mint:#BDEBD0;--red:#e5484d}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-family:Cairo;color:var(--w)}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--dk);font-family:Cairo;color:var(--w)}
 #stage{position:relative;width:1080px;height:1920px;overflow:hidden}
-#bg{position:absolute;inset:0;background:var(--n)}
+#bg{position:absolute;inset:0;background:var(--dk)}
 #glow{position:absolute;width:1400px;height:1400px;border-radius:50%;left:-160px;top:200px;
-  background:radial-gradient(circle,rgba(40,80,140,.55) 0%,rgba(11,30,58,0) 65%)}
-#yellowbg{position:absolute;inset:0;background:var(--y);opacity:0}
-.sym{position:absolute;font-weight:900;color:var(--y);opacity:.07;font-size:120px}
+  background:radial-gradient(circle,rgba(70,185,119,.32) 0%,rgba(12,51,34,0) 65%)}
+#greenbg{position:absolute;inset:0;background:var(--g);opacity:0}
+.sym{position:absolute;font-weight:900;color:var(--g);opacity:.09;font-size:120px}
 .scene{position:absolute;inset:0;opacity:0}
 .c{position:absolute;left:0;right:0;text-align:center}
 .wd{display:inline-block;opacity:0;white-space:pre}
 .big{font-weight:900;font-size:118px;line-height:1.25}
 .mid{font-weight:900;font-size:84px;line-height:1.35}
-.sm{font-weight:600;font-size:56px;line-height:1.4}
-.y{color:var(--y)} .n{color:var(--n)}
+.sm{font-weight:600;font-size:72px;line-height:1.4}
+.g{color:var(--g)} .ink{color:var(--ink)}
 .pop{opacity:0}
-/* bubble */
-.bubble{position:absolute;background:var(--w);color:var(--n);border-radius:60px;padding:30px 80px;font-weight:900;font-size:130px;line-height:1.2}
+.bubble{position:absolute;background:var(--w);color:var(--ink);border-radius:60px;padding:30px 80px;font-weight:900;font-size:130px;line-height:1.2}
 .bubble:after{content:"";position:absolute;bottom:-46px;right:110px;border:28px solid transparent;border-top:48px solid var(--w);border-right:48px solid var(--w)}
-.ybubble{background:var(--y)}
-.ybubble:after{border-top-color:var(--y);border-right-color:var(--y)}
-/* cards */
-.card{position:absolute;left:140px;right:140px;background:var(--w);border-radius:44px;color:var(--n);padding:50px 60px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
-.row{display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:76px;height:120px;border-bottom:4px dashed #d6dbe4}
+.gbubble{background:var(--g)}
+.gbubble:after{border-top-color:var(--g);border-right-color:var(--g)}
+.card{position:absolute;left:140px;right:140px;background:var(--w);border-radius:44px;color:var(--ink);padding:50px 60px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.row{display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:76px;height:120px;border-bottom:4px dashed #d3e6da}
 .row:last-child{border-bottom:none}
 .mark{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:62px;color:#fff;opacity:0}
-.x{background:var(--red)} .ok{background:var(--green)}
+.x{background:var(--red)} .ok{background:var(--g)}
 .dots{position:absolute;top:250px;left:0;right:0;display:flex;justify-content:center;gap:22px}
 .dot{width:90px;height:18px;border-radius:9px;background:rgba(255,255,255,.18)}
-.dot.on{background:var(--y)}
-.num{position:absolute;top:330px;left:0;right:0;text-align:center;font-weight:900;font-size:260px;line-height:1;color:var(--y)}
+.dot.on{background:var(--g)}
+.num{position:absolute;top:330px;left:0;right:0;text-align:center;font-weight:900;font-size:260px;line-height:1;color:var(--g)}
 .label{position:absolute;top:640px;left:0;right:0;text-align:center}
-.tag{display:inline-block;background:var(--y);color:var(--n);font-weight:900;font-size:58px;padding:6px 44px;border-radius:40px}
-.strike{position:absolute;height:16px;background:var(--red);border-radius:8px;transform-origin:right center}
-.hl{display:inline-block;background:var(--n);color:var(--y);padding:0 36px;border-radius:30px}
+.tag{display:inline-block;background:var(--g);color:var(--ink);font-weight:900;font-size:58px;padding:6px 44px;border-radius:40px}
+.strike{position:absolute;height:16px;background:var(--ink);border-radius:8px}
+.hl{display:inline-block;background:var(--ink);color:var(--w);padding:0 40px;border-radius:30px}
 </style>
 </head>
 <body>
 <div id="stage">
-  <div id="bg"></div><div id="glow"></div><div id="yellowbg"></div>
+  <div id="bg"></div><div id="glow"></div><div id="greenbg"></div>
   <div id="syms"></div>
 
-  <!-- S0: hook -->
+  <!-- S0 hook -->
   <div class="scene" id="s0">
-    <div class="c sm" style="top:450px;font-size:72px" id="s0a"></div>
+    <div class="c sm" style="top:450px" id="s0a"></div>
     <div class="bubble pop" id="s0b" style="top:600px;right:260px">فهمت!</div>
     <div class="c big" style="top:1080px" id="s0c"></div>
-    <div class="c pop" id="s0q" style="top:1380px;font-weight:900;font-size:300px;color:var(--y);line-height:1">؟</div>
+    <div class="c pop" id="s0q" style="top:1380px;font-weight:900;font-size:300px;color:var(--g);line-height:1">؟</div>
   </div>
 
-  <!-- S1: three signs -->
+  <!-- S1 three signs -->
   <div class="scene" id="s1">
-    <div class="pop" id="s1circle" style="position:absolute;left:290px;top:420px;width:500px;height:500px;border-radius:50%;background:var(--y);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:340px;color:var(--n);line-height:1;padding-bottom:30px">٣</div>
-    <div class="c big" style="top:1010px" id="s1a"></div>
-    <div class="c mid" style="top:1190px" id="s1b"></div>
+    <div class="c mid" style="top:300px" id="s1top"></div>
+    <div class="pop" id="s1circle" style="position:absolute;left:290px;top:500px;width:500px;height:500px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:340px;color:var(--ink);line-height:1;padding-bottom:30px">٣</div>
+    <div class="c big" style="top:1090px" id="s1a"></div>
   </div>
 
-  <!-- S2: sign 1 -->
+  <!-- S2 sign 1 -->
   <div class="scene" id="s2">
     <div class="dots"><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div>
     <div class="num pop" id="s2n">١</div>
@@ -76,7 +74,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
     </div>
   </div>
 
-  <!-- S3: sign 2 -->
+  <!-- S3 sign 2 -->
   <div class="scene" id="s3">
     <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
     <div class="num pop" id="s3n">٢</div>
@@ -87,52 +85,53 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
       <div class="row"><span>الخطوة ٢</span><div class="mark ok" id="s3k2">✓</div></div>
       <div class="row"><span>الخطوة ٣</span><div class="mark ok" id="s3k3">✓</div></div>
     </div>
-    <div class="bubble ybubble pop" id="s3why" style="top:1080px;left:90px;font-size:110px;padding:20px 60px">ليش؟</div>
+    <div class="bubble gbubble pop" id="s3why" style="top:975px;left:90px;font-size:110px;padding:20px 60px">ليش؟</div>
   </div>
 
-  <!-- S4: sign 3 -->
+  <!-- S4 sign 3 -->
   <div class="scene" id="s4">
     <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
     <div class="num pop" id="s4n">٣</div>
     <div class="label"><span class="tag pop" id="s4t">العلامة الثالثة</span></div>
-    <div class="c mid" style="top:760px;padding:0 70px" id="s4a"></div>
-    <div class="card pop" id="s4card" style="top:1200px;text-align:center">
+    <div class="c mid" style="top:760px;padding:0 40px" id="s4a"></div>
+    <div class="card pop" id="s4card" style="top:1340px;text-align:center">
       <div class="tag" style="font-size:44px;margin-bottom:20px">سؤال جديد</div>
       <div style="font-weight:900;font-size:110px;direction:rtl;unicode-bidi:isolate">٢س + ٥ = ١٣</div>
     </div>
     <svg id="s4scribble" class="pop" style="position:absolute;left:0;top:0" width="1080" height="1920">
-      <path d="M760 1150 q30 -60 60 0 t60 0 t60 0" stroke="#F5B700" stroke-width="14" fill="none" stroke-linecap="round"/>
-      <path d="M150 1170 l40 -60 M210 1180 l20 -80 M100 1210 l60 -40" stroke="#F5B700" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <path d="M760 1290 q30 -60 60 0 t60 0 t60 0" stroke="#46B977" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <path d="M150 1310 l40 -60 M210 1320 l20 -80 M100 1350 l60 -40" stroke="#46B977" stroke-width="14" fill="none" stroke-linecap="round"/>
     </svg>
   </div>
 
-  <!-- S5: insight (yellow) -->
+  <!-- S5 insight (brand green) -->
   <div class="scene" id="s5">
-    <div class="c mid n" style="top:420px" id="s5a"></div>
-    <div class="c n" style="top:640px;font-weight:900;font-size:86px;line-height:1.3;white-space:nowrap" id="s5b"></div>
+    <div class="c mid" style="top:420px" id="s5a"></div>
+    <div class="c" style="top:640px;font-weight:900;font-size:76px;line-height:1.3;white-space:nowrap" id="s5b"></div>
     <div class="strike" id="s5strike" style="top:745px;width:0"></div>
-    <div class="c big n" style="top:1080px" id="s5c"></div>
+    <div class="c big" style="top:1060px" id="s5c"></div>
     <div class="c big" style="top:1240px"><span class="hl pop" id="s5hl">طريقة الشرح</span></div>
   </div>
 
-  <!-- S6: every child -->
+  <!-- S6 every child -->
   <div class="scene" id="s6">
     <svg style="position:absolute;left:0;top:0" width="1080" height="1920">
-      <path id="p1" d="M140 380 C 300 380, 300 620, 540 760" stroke="#F5B700" stroke-width="12" fill="none" stroke-linecap="round" opacity=".9"/>
-      <path id="p2" d="M540 300 C 470 450, 610 560, 540 760" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round" opacity=".9"/>
-      <path id="p3" d="M940 380 C 760 420, 860 640, 540 760" stroke="#5aa0ff" stroke-width="12" fill="none" stroke-linecap="round" opacity=".9"/>
-      <circle id="pstar" cx="540" cy="760" r="0" fill="#F5B700"/>
+      <path id="p1" d="M140 360 C 300 360, 300 600, 540 740" stroke="#46B977" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path id="p2" d="M540 280 C 470 430, 610 540, 540 740" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path id="p3" d="M940 360 C 760 400, 860 620, 540 740" stroke="#BDEBD0" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <circle id="pstar" cx="540" cy="740" r="0" fill="#46B977"/>
     </svg>
-    <div class="c big" style="top:900px;padding:0 60px" id="s6a"></div>
-    <div class="c mid" style="top:1200px" id="s6b"></div>
-    <div class="bubble ybubble pop" id="s6q" style="top:1380px;right:200px;font-size:110px;padding:24px 70px">كيف فهمتها؟</div>
+    <div class="c mid" style="top:860px;padding:0 80px" id="s6a"></div>
+    <div class="c mid" style="top:1170px" id="s6b"></div>
+    <div class="bubble gbubble pop" id="s6q" style="top:1340px;right:150px;font-size:100px;padding:24px 64px;white-space:nowrap">شلون فهمتها؟</div>
   </div>
 
-  <!-- S7: brand -->
+  <!-- S7 brand (green) -->
   <div class="scene" id="s7">
-    <img id="logo" src="../brand/aqlam_logo_yellow.png" style="position:absolute;left:50%;top:640px;width:640px;transform:translateX(-50%);opacity:0">
-    <div class="c big" style="top:1120px;font-size:96px" id="s7a"></div>
-    <div class="pop" id="s7line" style="position:absolute;left:390px;width:300px;height:12px;border-radius:6px;background:var(--y);top:1290px"></div>
+    <img id="logo" src="../brand/aqlam_symbol_white.png" style="position:absolute;left:50%;top:430px;width:440px;transform:translateX(-50%);opacity:0">
+    <div class="c pop" id="s7word" style="top:930px;font-weight:900;font-size:180px;line-height:1.2">أقلام</div>
+    <div class="c ink" style="top:1210px;font-weight:900;font-size:90px;line-height:1.3" id="s7a"></div>
+    <div class="pop" id="s7line" style="position:absolute;left:400px;width:280px;height:12px;border-radius:6px;background:var(--ink);top:1360px"></div>
   </div>
 </div>
 
@@ -142,99 +141,94 @@ const L = TL.lines;
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const eo=x=>1-Math.pow(1-clamp(x),3);
 const back=x=>{x=clamp(x);const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
-const W=(li)=>L[li].words;
 const wt=(li,wi)=>L[li].words[wi].t;
-// build word spans: words from line li, indices a..b, optional class per index
 function words(el,li,a,b,cls={}){
-  const ws=W(li).slice(a,b+1).map((w,k)=>`<span class="wd ${cls[a+k]||''}" data-t="${w.t}">${w.w.replace('هذي','هذي')}</span>`);
-  const e=document.getElementById(el);e.insertAdjacentHTML('beforeend',(e.innerHTML.trim()&&!e.innerHTML.endsWith('<br>')?' ':'')+ws.join(' '));
+  const ws=L[li].words.slice(a,b+1).map((w,k)=>`<span class="wd ${cls[a+k]||''}" data-t="${w.t}">${w.w}</span>`);
+  const e=document.getElementById(el);
+  e.insertAdjacentHTML('beforeend',(e.innerHTML.trim()&&!e.innerHTML.endsWith('<br>')?' ':'')+ws.join(' '));
 }
+const br=id=>document.getElementById(id).insertAdjacentHTML('beforeend','<br>');
 words('s0a',0,0,1);
-words('s0c',1,0,2); document.getElementById('s0c').insertAdjacentHTML('beforeend','<br>'); words('s0c',1,3,4,{3:'y',4:'y'});
-words('s1a',2,0,2,{1:'y'}); words('s1b',2,3,5);
-words('s2a',3,1,3); document.getElementById('s2a').insertAdjacentHTML('beforeend','<br>'); words('s2a',3,4,7,{6:'y',7:'y'});
-words('s3a',4,1,2); document.getElementById('s3a').insertAdjacentHTML('beforeend','<br>'); words('s3a',4,3,6,{6:'y'});
-words('s4a',5,1,1,{1:'y'}); words('s4a',5,2,3); document.getElementById('s4a').insertAdjacentHTML('beforeend','<br>'); words('s4a',5,4,6);
-words('s5a',6,0,3); words('s5b',6,4,7,{7:'kw'});
-words('s5c',7,0,1);
-words('s6a',8,0,3,{3:'y'}); words('s6b',8,4,5);
+words('s0c',1,0,1); br('s0c'); words('s0c',1,2,3,{2:'g',3:'g'});
+words('s1top',2,0,2); words('s1a',2,3,4,{3:'g'});
+words('s2a',3,1,4); br('s2a'); words('s2a',3,5,8,{7:'g',8:'g'});
+words('s3a',4,1,2); br('s3a'); words('s3a',4,3,6,{6:'g'});
+words('s4a',5,1,5); br('s4a'); words('s4a',5,6,6,{6:'g big'});
+words('s5a',6,0,3); words('s5b',6,4,8,{8:'kw'});
+words('s5c',7,0,2);
+words('s6a',8,0,6,{6:'g'}); words('s6b',8,7,8);
 words('s7a',9,1,3);
 
-// floating math symbols
 const SY=['+','−','×','÷','=','٣','٧','%'];let sh='';
 for(let i=0;i<14;i++){sh+=`<div class="sym" id="sym${i}">${SY[i%SY.length]}</div>`}
 document.getElementById('syms').innerHTML=sh;
 
-// scene windows [in,out]
-const S=[0,0,0,0,0,0,0,0];
 const sceneStart=k=>L.find(l=>l.scene===k).speech_start;
 const win=[];for(let k=0;k<8;k++){const a=k?sceneStart(k)-0.35:0;const b=k<7?sceneStart(k+1)-0.35:TL.total+1;win.push([a,b])}
-
 const $=id=>document.getElementById(id);
 function popEl(el,t0,t,{dy=40,sc=.6,dur=.45}={}){
   const p=clamp((t-t0)/dur);
   el.style.opacity=clamp((t-t0)/0.15);
-  const s=sc+(1-sc)*back(p);
-  el.style.transform=(el.dataset.base||'')+` translateY(${(1-eo(p))*dy}px) scale(${s})`;
+  el.style.transform=(el.dataset.base||'')+` translateY(${(1-eo(p))*dy}px) scale(${sc+(1-sc)*back(p)})`;
 }
+const onGreen=t=>(t>win[5][0]+.15&&t<win[5][1]+.15)||t>win[7][0]+.15;
 
 function render(t){
-  // background
   $('glow').style.transform=`translate(${Math.sin(t*.35)*120}px,${Math.cos(t*.27)*160}px)`;
+  const gc=onGreen(t)?'#0C3322':'#46B977';
   for(let i=0;i<14;i++){const e=$('sym'+i);const x=((i*263)%1000)+Math.sin(t*.4+i)*30;const y=(((i*421)%1900)-t*(18+i%5*6)%2100+2100)%2100-120;
-    e.style.left=x+'px';e.style.top=y+'px';e.style.transform=`rotate(${(t*10+i*40)%360}deg)`;}
-  // yellow scene
-  const yIn=win[5][0],yOut=win[5][1];
-  $('yellowbg').style.opacity=clamp((t-yIn)/0.3)*(1-clamp((t-yOut)/0.3));
-  document.querySelectorAll('.sym').forEach(e=>e.style.color=(t>yIn+.15&&t<yOut+.15)?'#0B1E3A':'#F5B700');
+    e.style.left=x+'px';e.style.top=y+'px';e.style.transform=`rotate(${(t*10+i*40)%360}deg)`;e.style.color=gc;}
+  const g5=clamp((t-win[5][0])/0.3)*(1-clamp((t-win[5][1])/0.3));
+  const g7=clamp((t-win[7][0])/0.3);
+  $('greenbg').style.opacity=Math.max(g5,g7);
 
-  // scenes in/out
   for(let k=0;k<8;k++){const [a,b]=win[k];const el=$('s'+k);
-    const o=clamp((t-a)/0.3)*(1-clamp((t-b)/0.3));el.style.opacity=o;
+    el.style.opacity=clamp((t-a)/0.3)*(1-clamp((t-b)/0.3));
     el.style.transform=`translateY(${(1-eo((t-a)/0.4))*60 - eo((t-b)/0.3)*60}px)`;}
 
-  // words
   document.querySelectorAll('.wd').forEach(e=>{const t0=+e.dataset.t-0.08;const p=clamp((t-t0)/0.28);
     e.style.opacity=clamp((t-t0)/0.12);e.style.transform=`translateY(${(1-eo(p))*34}px) scale(${.85+.15*eo(p)})`;});
 
   // S0
-  popEl($('s0b'),wt(0,2)-.05,t,{dy:60,sc:.3});
   $('s0b').dataset.base=`rotate(${-3+Math.sin(t*3)*1.5}deg)`;
-  popEl($('s0q'),wt(1,4),t,{sc:.2});
-  if(t>wt(1,4)) $('s0q').style.transform+=` rotate(${Math.sin((t-wt(1,4))*5)*8}deg)`;
+  popEl($('s0b'),wt(0,2)-.05,t,{dy:60,sc:.3});
+  popEl($('s0q'),wt(1,3),t,{sc:.2});
+  if(t>wt(1,3)) $('s0q').style.transform+=` rotate(${Math.sin((t-wt(1,3))*5)*8}deg)`;
   // S1
-  popEl($('s1circle'),wt(2,1)-.1,t,{sc:.2});
+  popEl($('s1circle'),wt(2,3)-.1,t,{sc:.2});
   // S2
   popEl($('s2n'),sceneStart(2)-.2,t,{sc:.4}); popEl($('s2t'),wt(3,0),t,{sc:.6});
   popEl($('s2card'),wt(3,2),t,{dy:120,sc:.9});
-  ['s2x1','s2x2','s2x3'].forEach((id,k)=>popEl($(id),wt(3,5)+k*.3,t,{dy:0,sc:.1}));
+  ['s2x1','s2x2','s2x3'].forEach((id,k)=>popEl($(id),wt(3,6)+k*.3,t,{dy:0,sc:.1}));
   // S3
   popEl($('s3n'),sceneStart(3)-.2,t,{sc:.4}); popEl($('s3t'),wt(4,0),t,{sc:.6});
   popEl($('s3card'),wt(4,1),t,{dy:120,sc:.9});
   ['s3k1','s3k2','s3k3'].forEach((id,k)=>popEl($(id),wt(4,2)+k*.28,t,{dy:0,sc:.1}));
-  popEl($('s3why'),wt(4,6)-.05,t,{dy:40,sc:.2});
   $('s3why').dataset.base=`rotate(${-6+Math.sin(t*3)*2}deg)`;
+  popEl($('s3why'),wt(4,6)-.05,t,{dy:40,sc:.2});
   // S4
+  const sh0=wt(5,6);
+  $('s4card').dataset.base=t>sh0&&t<sh0+1.2?`translateX(${Math.sin(t*60)*16*(1-(t-sh0)/1.2)}px)`:'';
   popEl($('s4n'),sceneStart(4)-.2,t,{sc:.4}); popEl($('s4t'),wt(5,0),t,{sc:.6});
-  $('s4card').dataset.base=t>wt(5,1)&&t<wt(5,1)+1.2?`translateX(${Math.sin(t*60)*14*(1-(t-wt(5,1))/1.2)}px)`:'';
-  popEl($('s4card'),wt(5,4)-.6,t,{dy:120,sc:.9});
-  popEl($('s4scribble'),wt(5,1),t,{dy:0,sc:1});
+  popEl($('s4card'),wt(5,4)-.3,t,{dy:120,sc:.9});
+  popEl($('s4scribble'),sh0,t,{dy:0,sc:1});
   // S5
-  const sk=wt(6,7)+.35; const sw=eo((t-sk)/0.35);
+  const sw=eo((t-wt(6,8)-.35)/0.35);
   const kw=document.querySelector('#s5b .kw');
   if(kw){const r=kw.getBoundingClientRect();const st=$('stage').getBoundingClientRect();
     const s=$('s5strike'); s.style.right=(st.right-r.right-10)+'px'; s.style.top=(r.top-st.top+r.height*0.52-8)+'px';
     s.style.width=((r.width+20)*sw)+'px';}
-  popEl($('s5hl'),wt(7,2)-.05,t,{dy:30,sc:.5});
+  popEl($('s5hl'),wt(7,3)-.05,t,{dy:30,sc:.5});
   // S6
   ['p1','p2','p3'].forEach((id,k)=>{const p=$(id);const len=p.getTotalLength();p.style.strokeDasharray=len;
     p.style.strokeDashoffset=len*(1-eo((t-sceneStart(6)+.1-k*.25)/1.6));});
-  $('pstar').setAttribute('r',28*back((t-sceneStart(6)-1.6)/0.4)*(t>sceneStart(6)+1.6?1:0));
-  popEl($('s6q'),wt(8,6)-.05,t,{dy:40,sc:.2});
+  $('pstar').setAttribute('r',t>sceneStart(6)+1.6?28*back((t-sceneStart(6)-1.6)/0.4):0);
   $('s6q').dataset.base=`rotate(${-4+Math.sin(t*3)*1.5}deg)`;
+  popEl($('s6q'),wt(8,9)-.05,t,{dy:40,sc:.2});
   // S7
-  const lp=(t-sceneStart(7)+.15)/0.6; $('logo').style.opacity=clamp(lp*2);
-  $('logo').style.transform=`translateX(-50%) scale(${.7+.3*back(lp)})`;
+  const lp=(t-sceneStart(7)+.2)/0.6; $('logo').style.opacity=clamp(lp*2);
+  $('logo').style.transform=`translateX(-50%) scale(${.6+.4*back(lp)}) rotate(${(1-eo(lp))*-12}deg)`;
+  popEl($('s7word'),sceneStart(7)+.05,t,{dy:50,sc:.7});
   popEl($('s7line'),wt(9,3)+.2,t,{dy:0,sc:0});
 }
 window.render=render;
