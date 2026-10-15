@@ -8,3 +8,7 @@ Post: silence trimmed, pauses tightened, atempo 1.1, loudnorm -14 LUFS
 8.61s  حصص مباشرة ون تو ون، كل المواد والصفوف، والباقة ما تنتهي وتتقسّم بين عيالك.
 14.34s اثنعشر حصة بسبعمية درهم، يعني أقل من ستين للحصة!
 18.40s حمّل التطبيق الحين!
+
+--- Female version (aqlam-reel-voiceover-female.mp4) ---
+Voice: Salma (ElevenLabs, young Gulf female, id KxMRrXEjbJ6kZ93yT3fq) — model eleven_v4
+Same script; line starts (s): 0.08 2.82 6.66 8.58 14.37 18.47
