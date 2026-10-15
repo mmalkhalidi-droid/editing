@@ -33,3 +33,19 @@
 - `aqlam-awareness-no-audio.mp4`: visuals only
 - `aqlam-awareness-voiceover.mp3`: voice-over only
 - `source/`: HTML animation and render script
+
+## Sound effects (aqlam-awareness-3-signs-sfx.mp4)
+Generated with ElevenLabs Sound Effects and synced to the animation. Mixed about 10–15 dB under the voice; final mix -14 LUFS.
+- **Whoosh:** every scene transition
+- **Pop:** «فهمت!», «ليش؟» and «شلون فهمتها؟» bubbles
+- **Boing:** the question mark
+- **Ding:** the «٣» circle and «طريقة الشرح»
+- **Wrong-answer buzzer ×3:** the ✕ marks
+- **Check ticks ×3:** the ✓ steps
+- **Card slide:** each worksheet card
+- **Vibrate/shake:** «يعصّب»
+- **Marker strike:** «ذكائه» struck through
+- **Sparkle:** the three paths
+- **Logo reveal hit:** the end card
+
+Cue times are in `source/sfx/cues.json`; `aqlam-awareness-sfx-only.mp3` is the effects stem on its own.
