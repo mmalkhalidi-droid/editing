@@ -14,6 +14,26 @@ Remotion project for a 1080×1920, 30fps, 20-second H.264 reel.
 - **Logo:** drop a `public/logo.png` and it replaces the "أقلام" wordmark automatically.
 - **Music:** drop a `public/music.mp3` and it's added with a fade in/out. Without it, the video is silent.
 
+## Voice-over
+
+The VO script is `VOICEOVER_LINES` in `src/copy.ts` (one line per scene). Put one clip per
+scene in `public/vo/` — `hook.mp3`, `pain.mp3`, `turn.mp3`, `solution.mp3`, `offer.mp3`,
+`cta.mp3` — and each plays at the start of its scene. Any subset works. If a clip is longer
+than its scene, that scene stretches to fit, and music (if any) is ducked under the voice.
+Levels and timing live in `VOICEOVER` / `MUSIC` in `src/config.ts`.
+
+**Generate an AI Emirati voice (free):**
+
+```bash
+pip install edge-tts
+npm run voiceover                            # ar-AE-HamdanNeural (male)
+VOICE=ar-AE-FatimaNeural npm run voiceover   # female
+npm run render
+```
+
+**Or record it yourself:** read each line into your phone's voice memo app, export as MP3,
+name the files as above and drop them in `public/vo/`.
+
 ## Preview & tweak (Remotion Studio)
 
 ```bash

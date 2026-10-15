@@ -52,4 +52,19 @@ export const MUSIC = {
   fadeInSeconds: 0.5,
   fadeOutSeconds: 1.5,
   volume: 0.9,
+  /** Music volume multiplier while voice-over is present. */
+  duckedVolume: 0.25,
+} as const;
+
+/**
+ * Voice-over, only used if public/vo/<scene>.mp3 files exist
+ * (hook.mp3, pain.mp3, turn.mp3, solution.mp3, offer.mp3, cta.mp3).
+ * A scene is stretched automatically if its clip is longer than the scene.
+ */
+export const VOICEOVER = {
+  volume: 1,
+  /** Delay after the scene starts before the clip plays (seconds). */
+  leadInSeconds: 0.1,
+  /** Breathing room kept after a clip before the next scene (seconds). */
+  tailSeconds: 0.15,
 } as const;

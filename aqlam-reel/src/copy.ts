@@ -43,3 +43,18 @@ export const COPY = {
     whatsapp: "أو كلمنا واتساب",
   },
 } as const;
+
+/**
+ * Voice-over script, one line per scene (Gulf dialect, written for speaking:
+ * numbers are spelled out). `npm run voiceover` turns these into
+ * public/vo/<scene>.mp3. Rough budget: ~2.5 words per second.
+ */
+export const VOICEOVER_LINES = {
+  hook: "الساعة تسع بالليل… والواجب للحين ما خلص!",
+  pain: "الولد تعبان، وإنت تعبان، والرياضيات ما لها خلق.",
+  turn: "خلّ الشرح علينا.",
+  solution:
+    "مع أقلام: حصص مباشرة واحد لواحد، كل المواد وكل الصفوف، والباقة ما تنتهي وتتقسم بين عيالك.",
+  offer: "اثنعش حصة بسبعمية درهم بس!",
+  cta: "حمّل تطبيق أقلام الحين، أو كلمنا واتساب.",
+} as const;
