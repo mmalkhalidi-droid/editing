@@ -1,0 +1,10 @@
+Aqlam reel — Arabic voice-over (Emirati / Gulf)
+Voice: Sultan (ElevenLabs, Emirati Gulf male, id rUaPbzcZIu8df8iNL9WZ) — model eleven_v4
+Post: silence trimmed, pauses tightened, atempo 1.1, loudnorm -14 LUFS
+
+0.10s  الساعة تسع بالليل، والواجب ما خلص!
+2.81s  الولد تعبان، وإنت تعبان، والرياضيات ما لها خلق.
+6.42s  أقلام… خلّ الشرح علينا.
+8.61s  حصص مباشرة ون تو ون، كل المواد والصفوف، والباقة ما تنتهي وتتقسّم بين عيالك.
+14.34s اثنعشر حصة بسبعمية درهم، يعني أقل من ستين للحصة!
+18.40s حمّل التطبيق الحين!
