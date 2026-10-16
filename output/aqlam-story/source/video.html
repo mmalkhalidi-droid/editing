@@ -1,0 +1,308 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:Cairo;font-weight:600;src:url(../brand/fonts/Cairo600.ttf)}
+@font-face{font-family:Cairo;font-weight:900;src:url(../brand/fonts/Cairo900.ttf)}
+:root{--g:#46B977;--gd:#1F8A50;--ink:#0C3322;--bg:#F4FBF7;--mint:#DDF3E6;--w:#fff;--red:#e5484d}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);font-family:Cairo,'Noto Color Emoji';color:var(--ink)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+.blob{position:absolute;border-radius:50%;filter:blur(20px)}
+#b1{width:900px;height:900px;left:-300px;top:-200px;background:radial-gradient(circle,rgba(70,185,119,.28),rgba(70,185,119,0) 70%)}
+#b2{width:1000px;height:1000px;left:400px;top:1100px;background:radial-gradient(circle,rgba(70,185,119,.22),rgba(70,185,119,0) 70%)}
+#greenbg{position:absolute;inset:0;background:var(--g);opacity:0}
+.sym{position:absolute;font-weight:900;color:var(--g);opacity:.12;font-size:110px}
+#prog{position:absolute;top:110px;left:90px;right:90px;height:12px;border-radius:6px;background:rgba(12,51,34,.12);overflow:hidden;z-index:5}
+#progf{position:absolute;right:0;top:0;bottom:0;width:0;background:var(--g);border-radius:6px}
+.scene{position:absolute;inset:0;opacity:0}
+.cap{position:absolute;left:70px;right:70px;top:1220px;text-align:center;font-weight:900;font-size:80px;line-height:1.45}
+.wd{display:inline-block;opacity:0;white-space:pre}
+.gt{color:var(--gd)}
+.pill{display:inline-block;background:var(--g);color:#fff;padding:0 28px;border-radius:28px;opacity:0;white-space:nowrap}
+.onG .cap{color:#fff}
+.onG .pill{background:#fff;color:var(--ink)}
+.pop{opacity:0}
+.emo{position:absolute;font-size:200px;line-height:1;text-align:center}
+.card{position:absolute;background:#fff;border-radius:48px;box-shadow:0 24px 70px rgba(12,51,34,.14);color:var(--ink)}
+.bub{position:absolute;border-radius:56px;padding:26px 60px;font-weight:900;font-size:84px;line-height:1.3;box-shadow:0 20px 50px rgba(12,51,34,.18);white-space:nowrap}
+.bub.dark{background:var(--ink);color:#fff}
+.bub.green{background:var(--g);color:#fff}
+.bub.white{background:#fff;color:var(--ink)}
+.bub:after{content:"";position:absolute;bottom:-40px;border:24px solid transparent}
+.bub.tr:after{right:90px;border-top:42px solid;border-right:42px solid;border-color:inherit}
+.bub.dark:after{border-top-color:var(--ink);border-right-color:var(--ink)}
+.bub.green:after{border-top-color:var(--g);border-right-color:var(--g)}
+.bub.white:after{border-top-color:#fff;border-right-color:#fff}
+.mark{display:inline-flex;width:96px;height:96px;border-radius:50%;align-items:center;justify-content:center;color:#fff;font-size:62px;font-weight:900}
+.x{background:var(--red)} .ok{background:var(--g)}
+.row{display:flex;align-items:center;justify-content:space-between;font-weight:900;font-size:68px;padding:0 50px;height:150px}
+.badge{display:inline-block;background:var(--mint);color:var(--gd);font-weight:900;font-size:48px;padding:4px 30px;border-radius:30px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="blob" id="b1"></div><div class="blob" id="b2"></div>
+  <div id="greenbg"></div>
+  <div id="syms"></div>
+  <div id="prog"><div id="progf"></div></div>
+
+  <!-- S0 hook: clock -->
+  <div class="scene" id="s0">
+    <svg id="clock" style="position:absolute;left:250px;top:300px" width="580" height="580" viewBox="-290 -290 580 580">
+      <circle r="270" fill="#46B977"/><circle r="232" fill="#fff"/>
+      <g id="ticks"></g>
+      <line id="hh" x1="0" y1="0" x2="-120" y2="0" stroke="#0C3322" stroke-width="22" stroke-linecap="round"/>
+      <line id="mh" x1="0" y1="0" x2="0" y2="-180" stroke="#0C3322" stroke-width="14" stroke-linecap="round"/>
+      <circle r="18" fill="#46B977"/>
+    </svg>
+    <div class="emo pop" id="s0e1" style="left:120px;top:300px;font-size:150px">💥</div>
+    <div class="emo pop" id="s0e2" style="left:800px;top:760px;font-size:150px">💥</div>
+    <div class="emo pop" id="s0e3" style="left:780px;top:280px;font-size:130px">📚</div>
+    <div class="cap" id="c0"></div>
+  </div>
+
+  <!-- S1 Hamad -->
+  <div class="scene" id="s1">
+    <div class="card pop" id="s1card" style="left:190px;top:300px;width:700px;height:420px;text-align:center;padding-top:30px">
+      <div style="font-size:190px;line-height:1">👦</div>
+      <div style="font-weight:900;font-size:90px;line-height:1.3">حمد</div>
+      <div class="badge">الصف الخامس</div>
+    </div>
+    <div class="emo pop" id="s1book" style="left:110px;top:640px;font-size:170px">📘</div>
+    <div class="bub dark tr pop" id="s1bub" style="right:150px;top:800px">ماما، ما فهمت 😕</div>
+    <div class="cap" id="c1" style="top:1180px"></div>
+  </div>
+
+  <!-- S2 explain / angry / cry -->
+  <div class="scene" id="s2">
+    <div class="card pop" id="s2a" style="left:570px;top:340px;width:400px;height:520px;text-align:center;padding-top:40px">
+      <div style="font-size:200px;line-height:1.1">😤</div><div style="font-weight:900;font-size:70px">يعصّب</div></div>
+    <div class="card pop" id="s2b" style="left:110px;top:340px;width:400px;height:520px;text-align:center;padding-top:40px">
+      <div style="font-size:200px;line-height:1.1">😭</div><div style="font-weight:900;font-size:70px">يصيح</div></div>
+    <div class="cap" id="c2"></div>
+  </div>
+
+  <!-- S3 tired mom: battery -->
+  <div class="scene" id="s3">
+    <svg style="position:absolute;left:230px;top:330px" width="620" height="320" viewBox="0 0 620 320">
+      <rect x="10" y="10" width="540" height="300" rx="56" fill="#fff" stroke="#0C3322" stroke-width="20"/>
+      <rect x="560" y="110" width="50" height="100" rx="16" fill="#0C3322"/>
+      <rect id="batt" x="40" y="40" width="480" height="240" rx="34" fill="#46B977"/>
+    </svg>
+    <div class="emo pop" id="s3e" style="left:0;right:0;top:700px;font-size:190px">😩</div>
+    <div class="emo pop" id="s3h" style="left:780px;top:640px;font-size:150px">💔</div>
+    <div class="cap" id="c3"></div>
+  </div>
+
+  <!-- S4 tried everything -->
+  <div class="scene" id="s4">
+    <div class="card pop" id="s4c1" style="left:130px;right:130px;top:300px"><div class="row"><span>▶️ اليوتيوب</span><span class="mark x pop" id="s4x1">✕</span></div></div>
+    <div class="card pop" id="s4c2" style="left:130px;right:130px;top:500px"><div class="row"><span>📝 حفظ الخطوات</span><span class="mark x pop" id="s4x2">✕</span></div></div>
+    <div class="card pop" id="s4c3" style="left:260px;right:260px;top:720px;height:400px;text-align:center;padding-top:30px">
+      <div class="badge">الاختبار</div>
+      <div id="fly" style="position:relative;height:250px;font-weight:900;font-size:90px"></div>
+    </div>
+    <div class="cap" id="c4" style="top:1200px"></div>
+  </div>
+
+  <!-- S5 friend (green) -->
+  <div class="scene onG" id="s5">
+    <img id="s5logo" class="pop" src="../brand/aqlam_symbol_white.png" style="position:absolute;left:390px;top:260px;width:300px">
+    <div class="card pop" id="s5chat" style="left:110px;right:110px;top:640px;padding:40px 50px;border-radius:44px">
+      <div style="font-weight:900;font-size:48px;color:var(--gd)">💬 ربيعتي</div>
+      <div id="typing" style="font-size:90px;line-height:1;color:#9bb5a6;letter-spacing:10px">•••</div>
+      <div id="s5msg" style="font-weight:900;font-size:76px;line-height:1.35"></div>
+    </div>
+    <div class="cap" id="c5"></div>
+  </div>
+
+  <!-- S6 1-on-1 session phone -->
+  <div class="scene" id="s6">
+    <div class="pop" id="phone" style="position:absolute;left:290px;top:250px;width:500px;height:900px;border-radius:70px;background:#0C3322;padding:22px">
+      <div style="position:relative;width:100%;height:100%;border-radius:52px;background:#fff;overflow:hidden">
+        <div style="position:absolute;top:24px;left:0;right:0;text-align:center"><span class="badge" style="font-size:36px">أقلام · حصة مباشرة</span></div>
+        <div style="position:absolute;top:110px;left:30px;right:30px;height:420px;border-radius:36px;background:var(--mint);text-align:center;padding-top:60px">
+          <div style="font-size:180px;line-height:1">👩‍🏫</div><div style="font-weight:900;font-size:48px">المدرّس</div></div>
+        <div style="position:absolute;top:560px;left:30px;width:200px;height:220px;border-radius:30px;background:#eaf6ef;text-align:center;padding-top:24px">
+          <div style="font-size:110px;line-height:1">👦</div><div style="font-weight:900;font-size:36px">حمد</div></div>
+        <div style="position:absolute;top:570px;right:30px;font-weight:900;font-size:40px;color:var(--red)"><span id="live">●</span> مباشر</div>
+        <div class="pop" id="s6one" style="position:absolute;top:650px;right:30px;background:var(--g);color:#fff;font-weight:900;font-size:56px;padding:6px 26px;border-radius:26px">١ على ١</div>
+      </div>
+    </div>
+    <div class="emo pop" id="s6home" style="left:110px;top:900px;font-size:150px">🏠</div>
+    <div class="cap" id="c6" style="top:1210px"></div>
+  </div>
+
+  <!-- S7 step by step -->
+  <div class="scene" id="s7">
+    <div class="card pop" id="s7card" style="left:150px;right:150px;top:280px;padding:20px 0">
+      <div class="row" style="border-bottom:4px dashed #e2efe7"><span>الخطوة ١</span><span class="mark ok pop" id="s7k1">✓</span></div>
+      <div class="row" style="border-bottom:4px dashed #e2efe7"><span>الخطوة ٢</span><span class="mark ok pop" id="s7k2">✓</span></div>
+      <div class="row"><span>الخطوة ٣</span><span class="mark ok pop" id="s7k3">✓</span></div>
+    </div>
+    <div style="position:absolute;left:150px;right:150px;top:860px;font-weight:900;font-size:52px">الفهم <span id="pct" style="float:left;color:var(--gd)">٠٪</span></div>
+    <div style="position:absolute;left:150px;right:150px;top:950px;height:44px;border-radius:22px;background:#e2efe7;overflow:hidden">
+      <div id="bar" style="position:absolute;right:0;top:0;bottom:0;width:0;background:var(--g);border-radius:22px"></div></div>
+    <div class="emo pop" id="s7bulb" style="left:820px;top:200px;font-size:140px">💡</div>
+    <div class="cap" id="c7" style="top:1150px"></div>
+  </div>
+
+  <!-- S8 win -->
+  <div class="scene" id="s8">
+    <div class="emo pop" id="s8kid" style="left:0;right:0;top:300px;font-size:260px">🧒</div>
+    <div class="bub green tr pop" id="s8bub" style="left:80px;right:80px;top:640px;white-space:normal;text-align:center;font-size:80px" ></div>
+    <div id="confetti"></div>
+    <div class="cap" id="c8" style="top:1230px"></div>
+  </div>
+
+  <!-- S9 empathy -->
+  <div class="scene" id="s9">
+    <div class="emo pop" id="s9e" style="left:0;right:0;top:380px;font-size:280px">🤝</div>
+    <div class="emo pop" id="s9h" style="left:700px;top:330px;font-size:140px">💚</div>
+    <div class="cap" id="c9" style="top:1000px"></div>
+  </div>
+
+  <!-- S10 end card (green) -->
+  <div class="scene onG" id="s10">
+    <img id="logo" src="../brand/aqlam_symbol_white.png" style="position:absolute;left:50%;top:300px;width:380px;transform:translateX(-50%);opacity:0">
+    <div class="pop" id="word" style="position:absolute;left:0;right:0;top:720px;text-align:center;font-weight:900;font-size:160px;color:#fff;line-height:1.2">أقلام</div>
+    <div class="pop" id="dm" style="position:absolute;left:150px;right:150px;top:1000px;height:170px;border-radius:85px;background:#fff;display:flex;align-items:center;justify-content:center;gap:28px;font-weight:900;font-size:72px;color:var(--ink);box-shadow:0 24px 60px rgba(12,51,34,.25)">
+      <svg width="86" height="86" viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z" fill="#46B977"/></svg>راسلونا على الخاص</div>
+    <div class="emo pop" id="tap" style="left:800px;top:1100px;font-size:140px">👆</div>
+    <div class="cap" id="c10" style="top:1330px;font-size:96px"></div>
+  </div>
+</div>
+
+<script>
+const TL = __TIMELINE__;
+const L = TL.lines, N = L.length;
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-clamp(x),3);
+const back=x=>{x=clamp(x);const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const wt=(li,wi)=>L[li].words[wi].t;
+const $=id=>document.getElementById(id);
+// caption builder: g = indices in dark-green text, pill = [a,b] grouped highlight
+function cap(el,li,a,b,{g=[],pill=null}={}){
+  let h=[];const ws=L[li].words;
+  for(let i=a;i<=b;i++){
+    if(pill&&i===pill[0]){
+      const inner=[];for(let j=pill[0];j<=pill[1];j++)inner.push(ws[j].w);
+      h.push(`<span class="pill pw" data-t="${ws[pill[0]].t}">${inner.join(' ')}</span>`);i=pill[1];continue;}
+    h.push(`<span class="wd ${g.includes(i)?'gt':''}" data-t="${ws[i].t}">${ws[i].w}</span>`);
+  }
+  $(el).innerHTML+=h.join(' ');
+}
+cap('c0',0,0,7,{g:[3],pill:[6,7]});
+cap('c1',1,0,10,{g:[1,9]});
+cap('c2',2,0,6,{g:[3,6]});
+cap('c3',3,0,8,{g:[3],pill:[8,8]});
+cap('c4',4,0,12,{g:[1,4],pill:[10,12]});
+cap('c5',5,0,3);
+cap('c6',6,0,14,{g:[1,4],pill:[9,12]});
+cap('c7',7,0,11,{g:[4],pill:[10,11]});
+cap('c8',8,0,4);
+cap('c9',9,0,9,{g:[1],pill:[7,9]});
+cap('c10',10,3,5);
+// bubbles whose words reveal with the voice
+function bubWords(el,li,a,b){$(el).innerHTML=L[li].words.slice(a,b+1).map(w=>`<span class="wd" data-t="${w.t}">${w.w}</span>`).join(' ');}
+bubWords('s5msg',5,4,7);
+$('s8bub').innerHTML=L[8].words.slice(5,10).map(w=>`<span class="wd" data-t="${w.t}">${w.w}</span>`).join(' ')+' <span class="wd" data-t="'+(wt(8,9)+.3)+'">🎉</span>';
+// clock ticks
+let tk='';for(let i=0;i<12;i++){const a=i*Math.PI/6;tk+=`<line x1="${Math.sin(a)*200}" y1="${-Math.cos(a)*200}" x2="${Math.sin(a)*(i%3?185:165)}" y2="${-Math.cos(a)*(i%3?185:165)}" stroke="#0C3322" stroke-width="${i%3?8:14}" stroke-linecap="round"/>`}
+$('ticks').innerHTML=tk;
+// flying digits
+const D=['٣','+','٧','=','؟','×','٥'];$('fly').innerHTML=D.map((d,i)=>`<span class="fd" style="position:absolute;left:${40+i*55}px;top:${60+(i%2)*70}px">${d}</span>`).join('');
+// confetti
+let cf='';const CC=['#46B977','#0C3322','#ffffff','#BDEBD0','#F5B700'];
+for(let i=0;i<46;i++){cf+=`<div class="cf" style="position:absolute;width:${18+i%3*8}px;height:${30+i%4*8}px;background:${CC[i%5]};border-radius:5px;opacity:0"></div>`}
+$('confetti').innerHTML=cf;
+// symbols
+const SY=['+','−','×','÷','=','٣','٧','%'];let sh='';for(let i=0;i<12;i++)sh+=`<div class="sym" id="sym${i}">${SY[i%8]}</div>`;$('syms').innerHTML=sh;
+
+const win=[];for(let k=0;k<N;k++){const a=k?L[k].speech_start-0.3:0;const b=k<N-1?L[k+1].speech_start-0.3:TL.total+1;win.push([a,b])}
+function popEl(el,t0,t,{dy=40,sc=.6,dur=.45}={}){
+  const p=clamp((t-t0)/dur);el.style.opacity=clamp((t-t0)/0.15);
+  el.style.transform=(el.dataset.base||'')+` translateY(${(1-eo(p))*dy}px) scale(${sc+(1-sc)*back(p)})`;
+}
+const isG=k=>k===5||k===10;
+
+function render(t){
+  $('b1').style.transform=`translate(${Math.sin(t*.3)*140}px,${Math.cos(t*.23)*120}px)`;
+  $('b2').style.transform=`translate(${Math.cos(t*.27)*140}px,${Math.sin(t*.31)*120}px)`;
+  $('progf').style.width=(100*clamp(t/TL.total))+'%';
+  let gOp=0;for(const k of [5,10]){const [a,b]=win[k];gOp=Math.max(gOp,clamp((t-a)/0.3)*(1-clamp((t-b)/0.3)));}
+  $('greenbg').style.opacity=gOp;
+  $('prog').style.background=gOp>.5?'rgba(255,255,255,.3)':'rgba(12,51,34,.12)';
+  $('progf').style.background=gOp>.5?'#fff':'#46B977';
+  for(let i=0;i<12;i++){const e=$('sym'+i);const x=((i*263)%1000)+Math.sin(t*.4+i)*30;const y=(((i*421)%1900)-t*(16+i%5*6)%2100+2100)%2100-120;
+    e.style.left=x+'px';e.style.top=y+'px';e.style.transform=`rotate(${(t*10+i*40)%360}deg)`;e.style.color=gOp>.5?'#ffffff':'#46B977';}
+  for(let k=0;k<N;k++){const [a,b]=win[k];const el=$('s'+k);
+    el.style.opacity=clamp((t-a)/0.3)*(1-clamp((t-b)/0.25));
+    el.style.transform=`translateY(${(1-eo((t-a)/0.4))*70}px) scale(${1-eo((t-b)/0.25)*.06})`;}
+  document.querySelectorAll('.wd,.pw').forEach(e=>{const t0=+e.dataset.t-0.08;const p=clamp((t-t0)/0.28);
+    e.style.opacity=clamp((t-t0)/0.12);e.style.transform=`translateY(${(1-eo(p))*30}px) scale(${(e.classList.contains('pw')?.6+.4*back(p):.85+.15*eo(p))})`;});
+
+  // S0 clock: minute hand sweeps to 12, hour to 9; shake at "لساحة"
+  const s0=L[0].speech_start; const sw=eo((t-s0+.3)/1.4);
+  $('mh').setAttribute('transform',`rotate(${-300*(1-sw)})`); $('hh').setAttribute('transform',`rotate(${-25*(1-sw)})`);
+  const sk=wt(0,6); $('clock').style.transform=t>sk&&t<sk+1.4?`rotate(${Math.sin(t*50)*6*(1-(t-sk)/1.4)}deg)`:'';
+  popEl($('s0e3'),wt(0,4)-.2,t,{sc:.2});
+  popEl($('s0e1'),sk,t,{sc:.1,dy:0}); popEl($('s0e2'),sk+.25,t,{sc:.1,dy:0});
+  // S1
+  popEl($('s1card'),L[1].speech_start-.1,t,{dy:80,sc:.8});
+  popEl($('s1book'),wt(1,8)-.1,t,{sc:.3});
+  $('s1bub').dataset.base=`rotate(${-3+Math.sin(t*3)*1.5}deg)`;
+  popEl($('s1bub'),wt(1,11)-.05,t,{sc:.3});
+  // S2
+  $('s2a').dataset.base=t>wt(2,3)&&t<wt(2,3)+.9?`translateX(${Math.sin(t*55)*12*(1-(t-wt(2,3))/.9)}px)`:'';
+  popEl($('s2a'),wt(2,3)-.1,t,{sc:.4}); popEl($('s2b'),wt(2,6)-.1,t,{sc:.4});
+  // S3 battery drains
+  const bp=1-eo((t-L[3].speech_start)/3.2); const bw=Math.max(40,480*bp);
+  $('batt').setAttribute('width',bw); $('batt').setAttribute('fill',bp>.5?'#46B977':bp>.25?'#F5B700':'#e5484d');
+  popEl($('s3e'),wt(3,3)-.05,t,{sc:.3}); popEl($('s3h'),wt(3,8)-.05,t,{sc:.2});
+  // S4
+  popEl($('s4c1'),wt(4,0)-.1,t,{dy:60,sc:.9}); popEl($('s4x1'),wt(4,1)+.25,t,{dy:0,sc:.1});
+  popEl($('s4c2'),wt(4,2)-.1,t,{dy:60,sc:.9}); popEl($('s4x2'),wt(4,4)+.1,t,{dy:0,sc:.1});
+  popEl($('s4c3'),wt(4,9)-.25,t,{dy:80,sc:.9});
+  const ft=wt(4,12)-.05; document.querySelectorAll('.fd').forEach((e,i)=>{const p=eo((t-ft-i*.04)/0.9);
+    e.style.transform=`translate(${(i-3)*90*p}px,${-420*p}px) rotate(${(i%2?1:-1)*200*p}deg)`;e.style.opacity=1-p;});
+  // S5
+  popEl($('s5chat'),L[5].speech_start,t,{dy:80,sc:.85});
+  const typ=t<wt(5,4)-.05; $('typing').style.display=typ?'block':'none';
+  $('typing').style.opacity=.4+.6*Math.abs(Math.sin(t*5));
+  popEl($('s5logo'),wt(5,7)-.05,t,{sc:.2});
+  // S6
+  popEl($('phone'),L[6].speech_start-.15,t,{dy:120,sc:.85});
+  $('live').style.opacity=.3+.7*Math.abs(Math.sin(t*4));
+  popEl($('s6one'),wt(6,10)-.05,t,{sc:.2}); popEl($('s6home'),wt(6,14)-.1,t,{sc:.2});
+  // S7
+  popEl($('s7card'),L[7].speech_start-.15,t,{dy:80,sc:.9});
+  ['s7k1','s7k2','s7k3'].forEach((id,k)=>popEl($(id),[wt(7,5),wt(7,7),wt(7,9)][k],t,{dy:0,sc:.1}));
+  const fp=eo((t-wt(7,1))/(wt(7,11)-wt(7,1)+.2)); $('bar').style.width=(100*fp)+'%';
+  $('pct').textContent=Math.round(100*fp).toLocaleString('ar-EG')+'٪';
+  popEl($('s7bulb'),wt(7,11),t,{sc:.2});
+  // S8
+  popEl($('s8kid'),L[8].speech_start-.1,t,{sc:.5});
+  $('s8kid').dataset.base=t>wt(8,7)?`translateY(${-Math.abs(Math.sin((t-wt(8,7))*6))*30}px)`:'';
+  popEl($('s8bub'),wt(8,5)-.1,t,{sc:.6});
+  const ct=wt(8,7); document.querySelectorAll('.cf').forEach((e,i)=>{const dt=t-ct;if(dt<0){e.style.opacity=0;return}
+    const ang=(i*137.5)%360*Math.PI/180, v=600+(i*53)%500; const x=540+Math.cos(ang)*v*dt*.9, y=700-Math.abs(Math.sin(ang))*v*dt*1.1+900*dt*dt;
+    e.style.left=x+'px';e.style.top=y+'px';e.style.opacity=clamp(1-(dt-2)/0.6);e.style.transform=`rotate(${dt*(300+i*20)}deg)`;});
+  // S9
+  popEl($('s9e'),L[9].speech_start,t,{sc:.4}); popEl($('s9h'),wt(9,7)-.05,t,{sc:.2});
+  // S10
+  const lp=(t-L[10].speech_start+.3)/0.6; $('logo').style.opacity=clamp(lp*2);
+  $('logo').style.transform=`translateX(-50%) scale(${.6+.4*back(lp)}) rotate(${(1-eo(lp))*-12}deg)`;
+  popEl($('word'),L[10].speech_start-.1,t,{dy:50,sc:.7});
+  const dmt=wt(10,0)-.05; popEl($('dm'),dmt,t,{sc:.5});
+  const tp=t-(wt(10,3)+.6); $('tap').style.opacity=tp>0?clamp(tp/0.2):0;
+  $('tap').style.transform=`translateY(${tp>0?Math.max(0,Math.sin(tp*5))*-40:40}px)`;
+  $('dm').style.transform+=tp>0?` scale(${1-Math.max(0,-Math.sin(tp*5))*.04})`:'';
+}
+window.render=render;
+document.fonts.ready.then(()=>{window.READY=true});
+</script>
+</body>
+</html>
