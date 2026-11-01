@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ionic Compounds and Metals</title>
+<style>
+  @page { size: A4; margin: 18mm 17mm 18mm 17mm;
+    @bottom-center { content: counter(page); font: 9pt Inter, sans-serif; color: #667; } }
+  :root { --blue:#1659b8; --blue-d:#0d3f86; --orange:#d9661a; --ink:#1d2330; --soft:#eef4fc; --line:#c9d6ea; }
+  * { box-sizing: border-box; }
+  body { font-family: Charter, "Bitstream Charter", Caladea, serif; font-size: 10.2pt; line-height: 1.4; color: var(--ink); margin: 0; background:#fff; }
+  h1,h2,h3,h4,.sans { font-family: Inter, "DejaVu Sans", sans-serif; }
+  .page-break { break-before: page; }
+  .cover { height: 250mm; display:flex; flex-direction:column; justify-content:space-between; }
+  .cover .band { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-d) 100%); color:#fff; padding: 22mm 14mm; border-radius: 4mm; }
+  .cover .kicker { font: 600 11pt Inter, sans-serif; letter-spacing:.12em; text-transform:uppercase; opacity:.85; }
+  .cover h1 { font-size: 34pt; line-height:1.1; margin: 6mm 0 4mm; font-weight:800; }
+  .cover .sub { font: 400 13pt Inter, sans-serif; opacity:.92; }
+  .toc { font-family: Inter, sans-serif; font-size: 11pt; }
+  .toc h3 { color: var(--blue); font-size: 12pt; margin-bottom: 3mm; }
+  .toc ol { margin:0; padding-left: 5mm; } .toc li { margin: 1.6mm 0; }
+  .toc .lesson { font-weight:700; color: var(--blue-d); margin-top: 4mm; }
+  .lesson-head { background: var(--blue); color:#fff; padding: 6mm 8mm; border-radius: 3mm 3mm 0 0; }
+  .lesson-head .num { font: 700 10pt Inter, sans-serif; text-decoration: underline; letter-spacing:.05em; }
+  .lesson-head h1 { margin: 1.5mm 0 0; font-size: 19pt; text-transform: uppercase; line-height:1.15; }
+  .focus { background: var(--soft); padding: 3mm 8mm 4mm; border-radius: 0 0 3mm 3mm; margin-bottom: 5mm; border:1px solid var(--line); border-top:none; }
+  .focus .lbl { font: 600 8.5pt Inter, sans-serif; letter-spacing:.08em; color:#445; }
+  .focus .q { font: 500 13pt Inter, sans-serif; color: var(--blue-d); }
+  h2 { color: var(--orange); font-size: 14.5pt; font-weight: 600; margin: 5mm 0 2mm; break-after: avoid; }
+  h3 { color: var(--blue-d); font-size: 11.5pt; margin: 4mm 0 1.5mm; break-after: avoid; }
+  p { margin: 0 0 2.4mm; }
+  .key { font-weight: bold; background: #fff1a8; padding: 0 1px; }
+  .box { border:1px solid var(--line); background: var(--soft); border-radius: 2.5mm; padding: 3mm 4.5mm; margin: 3mm 0; break-inside: avoid; }
+  .box.tip { background:#fff6ec; border-color:#f2c89f; }
+  .box .t { font: 700 9pt Inter, sans-serif; text-transform: uppercase; letter-spacing:.07em; color: var(--blue); margin-bottom: 1mm; }
+  .box.tip .t { color: var(--orange); }
+  .example { border-left: 3px solid var(--blue); padding: 1.5mm 0 1.5mm 4mm; margin: 3mm 0; break-inside: avoid; }
+  .example .t { font: 700 9.5pt Inter, sans-serif; color: var(--blue); }
+  table { border-collapse: collapse; width: 100%; margin: 2.5mm 0 3.5mm; font-size: 9.6pt; break-inside: avoid; }
+  th { background: var(--blue); color:#fff; font: 600 9pt Inter, sans-serif; text-align:left; padding: 1.6mm 2.2mm; }
+  td { border-bottom: 1px solid var(--line); padding: 1.3mm 2.2mm; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7f9fd; }
+  .cols2 { display:grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  ol.steps li, ul li { margin-bottom: 1mm; }
+  .practice { border: 2px solid var(--orange); border-radius: 3mm; padding: 3mm 5mm 2mm; margin: 4mm 0; }
+  .practice h3 { color: var(--orange); margin-top: 1mm; }
+  .practice ol { padding-left: 6mm; margin: 1mm 0; columns: 2; column-gap: 8mm; } .practice ol.one { columns: 1; } .practice li { break-inside: avoid; } .practice li { margin-bottom: 1.6mm; }
+  .opts { display:grid; grid-template-columns: repeat(4, auto); gap: 0 6mm; justify-content: start; }
+  .ans ol { padding-left: 6mm; } .ans li { margin-bottom: 0.8mm; }
+  .ans { font-size: 9.8pt; }
+  .fig { text-align:center; margin: 3mm 0; break-inside: avoid; }
+  .fig .cap { font: italic 9pt Charter, serif; color:#556; margin-top:1mm; }
+  sub, sup { font-size: 70%; line-height: 0; }
+  .blank { display:inline-block; min-width: 28mm; border-bottom: 1px solid #889; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div class="band">
+    <div class="kicker">Chemistry · Grade 10</div>
+    <h1>Ionic Compounds<br>and Metals</h1>
+    <div class="sub">A study guide for Lesson 3 (Names and Formulas for Ionic Compounds) and Lesson 4 (Metallic Bonds and the Properties of Metals), with practice questions and answers</div>
+  </div>
+  <div class="toc">
+    <h3>Contents</h3>
+    <div class="lesson">Lesson 3: Names and Formulas for Ionic Compounds</div>
+    <ol>
+      <li>Formulas for ionic compounds and the formula unit</li>
+      <li>Monatomic ions and oxidation numbers</li>
+      <li>Writing formulas for binary ionic compounds</li>
+      <li>Polyatomic ions and oxyanions</li>
+      <li>Naming ionic compounds</li>
+      <li>Practice set A</li>
+    </ol>
+    <div class="lesson">Lesson 4: Metallic Bonds and the Properties of Metals</div>
+    <ol start="7">
+      <li>Metallic bonds and the electron sea model</li>
+      <li>Comparing metals and ionic compounds</li>
+      <li>Properties of metals</li>
+      <li>Metal alloys</li>
+      <li>Practice set B</li>
+    </ol>
+    <div class="lesson">Chapter review and answer key</div>
+  </div>
+  <div class="sans" style="font-size:9pt;color:#667">How to use this guide: read each section, study the worked examples, then try the practice set before checking the answer key at the end.</div>
+</section>
+
+<!-- ============ LESSON 3 ============ -->
+<section class="page-break">
+  <div class="lesson-head"><div class="num">LESSON 3</div><h1>Names and Formulas for Ionic Compounds</h1></div>
+  <div class="focus"><div class="lbl">FOCUS QUESTION</div><div class="q">What are the names and formulas of ionic compounds?</div></div>
+
+  <h2>Formulas for Ionic Compounds</h2>
+  <p>Chemists around the world need to communicate clearly with one another, so they use one standard set of rules for naming compounds. Once you know these rules, you can write a chemical formula from a compound's name, and name a compound from its formula.</p>
+  <p>An ionic compound is not made of separate molecules. It is a huge crystal of positive and negative ions arranged in a repeating pattern. Because there is no single molecule to describe, chemists use the <span class="key">formula unit</span>: the chemical formula for an ionic compound, which represents the <em>simplest ratio</em> of the ions involved.</p>
+  <div class="example">
+    <div class="t">Example: magnesium chloride, MgCl<sub>2</sub></div>
+    The formula unit is MgCl<sub>2</sub> because magnesium ions (Mg<sup>2+</sup>) and chloride ions (Cl<sup>−</sup>) exist in a <b>1 : 2 ratio</b>. One Mg<sup>2+</sup> (+2) is balanced by two Cl<sup>−</sup> (−1 each), so the total charge is zero.
+  </div>
+  <div class="box">
+    <div class="t">Key idea</div>
+    The total charge of a formula unit is always <b>zero</b>. The positive charge of the cations must exactly cancel the negative charge of the anions.
+  </div>
+
+  <h2>Monatomic Ions</h2>
+  <p>A <span class="key">monatomic ion</span> is an ion made from a single atom, such as Na<sup>+</sup>, Ca<sup>2+</sup> or O<sup>2−</sup>. For main-group elements, the charge can be predicted from the element's group in the periodic table, because atoms gain or lose electrons to reach a stable octet (noble-gas configuration).</p>
+  <table>
+    <tr><th>Group</th><th>Electrons gained/lost</th><th>Ion charge</th><th>Examples</th></tr>
+    <tr><td>1</td><td>loses 1</td><td>1+</td><td>Li<sup>+</sup>, Na<sup>+</sup>, K<sup>+</sup></td></tr>
+    <tr><td>2</td><td>loses 2</td><td>2+</td><td>Mg<sup>2+</sup>, Ca<sup>2+</sup>, Ba<sup>2+</sup></td></tr>
+    <tr><td>13</td><td>loses 3</td><td>3+</td><td>Al<sup>3+</sup>, Ga<sup>3+</sup></td></tr>
+    <tr><td>15</td><td>gains 3</td><td>3−</td><td>N<sup>3−</sup> (nitride), P<sup>3−</sup> (phosphide)</td></tr>
+    <tr><td>16</td><td>gains 2</td><td>2−</td><td>O<sup>2−</sup> (oxide), S<sup>2−</sup> (sulfide)</td></tr>
+    <tr><td>17</td><td>gains 1</td><td>1−</td><td>F<sup>−</sup> (fluoride), Cl<sup>−</sup> (chloride), Br<sup>−</sup>, I<sup>−</sup></td></tr>
+  </table>
+  <p><b>Transition metals</b> (groups 3–12) often form <em>more than one</em> ion. Iron, for example, forms Fe<sup>2+</sup> and Fe<sup>3+</sup>; copper forms Cu<sup>+</sup> and Cu<sup>2+</sup>. Some, like silver (Ag<sup>+</sup>) and zinc (Zn<sup>2+</sup>), form only one common ion.</p>
+
+  <h3>Oxidation number</h3>
+  <p>The charge of a monatomic ion is called its <span class="key">oxidation number</span> (or oxidation state). The oxidation number of Na<sup>+</sup> is +1, of O<sup>2−</sup> is −2, and of Fe<sup>3+</sup> is +3. In an ionic formula, the sum of all oxidation numbers equals zero.</p>
+</section>
+
+<section>
+  <h2>Writing Formulas for Binary Ionic Compounds</h2>
+  <p>A <span class="key">binary ionic compound</span> contains only two elements: a metal cation and a nonmetal anion. Follow these steps:</p>
+  <ol class="steps">
+    <li>Write the symbol of the <b>cation first</b>, then the anion.</li>
+    <li>Write each ion's charge (oxidation number).</li>
+    <li>Add <b>subscripts</b> so that the total charge is zero. A quick method is the <em>crisscross method</em>: the number of each charge becomes the subscript of the other ion.</li>
+    <li>Reduce the subscripts to the simplest whole-number ratio. Never write a subscript of 1.</li>
+  </ol>
+
+  <div class="fig">
+    <svg width="420" height="110" viewBox="0 0 420 110" font-family="Inter, sans-serif">
+      <text x="40" y="40" font-size="30" fill="#1d2330">Al</text><text x="76" y="22" font-size="16" fill="#1659b8" font-weight="700">3+</text>
+      <text x="130" y="40" font-size="30" fill="#1d2330">O</text><text x="155" y="22" font-size="16" fill="#d9661a" font-weight="700">2−</text>
+      <path d="M86 28 C 120 60, 140 70, 168 78" stroke="#1659b8" stroke-width="2" fill="none" marker-end="url(#a1)"/>
+      <path d="M163 28 C 130 60, 105 70, 80 78" stroke="#d9661a" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+      <defs>
+        <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1659b8"/></marker>
+        <marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#d9661a"/></marker>
+      </defs>
+      <text x="215" y="66" font-size="22" fill="#1d2330">→</text>
+      <text x="255" y="72" font-size="30" fill="#1d2330">Al</text><text x="290" y="82" font-size="18" fill="#d9661a" font-weight="700">2</text>
+      <text x="305" y="72" font-size="30" fill="#1d2330">O</text><text x="331" y="82" font-size="18" fill="#1659b8" font-weight="700">3</text>
+      <text x="255" y="102" font-size="11" fill="#556">2(+3) + 3(−2) = 0 ✓</text>
+    </svg>
+    <div class="cap">Figure 1. The crisscross method for aluminum oxide.</div>
+  </div>
+
+  <div class="cols2">
+    <div class="example">
+      <div class="t">Worked example 1: calcium fluoride</div>
+      Ca<sup>2+</sup> and F<sup>−</sup>. Two F<sup>−</sup> ions are needed to balance one Ca<sup>2+</sup>.<br>
+      Formula: <b>CaF<sub>2</sub></b> &nbsp; Check: (+2) + 2(−1) = 0
+    </div>
+    <div class="example">
+      <div class="t">Worked example 2: magnesium oxide</div>
+      Mg<sup>2+</sup> and O<sup>2−</sup>. Crisscross gives Mg<sub>2</sub>O<sub>2</sub>, which reduces to 1 : 1.<br>
+      Formula: <b>MgO</b> &nbsp; Check: (+2) + (−2) = 0
+    </div>
+    <div class="example">
+      <div class="t">Worked example 3: iron(III) chloride</div>
+      The Roman numeral tells you the ion is Fe<sup>3+</sup>. With Cl<sup>−</sup>:<br>
+      Formula: <b>FeCl<sub>3</sub></b> &nbsp; Check: (+3) + 3(−1) = 0
+    </div>
+    <div class="example">
+      <div class="t">Worked example 4: sodium sulfide</div>
+      Na<sup>+</sup> and S<sup>2−</sup>. Two Na<sup>+</sup> balance one S<sup>2−</sup>.<br>
+      Formula: <b>Na<sub>2</sub>S</b> &nbsp; Check: 2(+1) + (−2) = 0
+    </div>
+  </div>
+
+  <h2>Polyatomic Ions</h2>
+  <p>A <span class="key">polyatomic ion</span> is a group of covalently bonded atoms that carries an overall charge and behaves as a single unit, for example the sulfate ion, SO<sub>4</sub><sup>2−</sup>. The charge belongs to the whole group, not to any one atom.</p>
+  <table>
+    <tr><th>Name</th><th>Formula</th><th>Name</th><th>Formula</th></tr>
+    <tr><td>ammonium</td><td>NH<sub>4</sub><sup>+</sup></td><td>sulfate</td><td>SO<sub>4</sub><sup>2−</sup></td></tr>
+    <tr><td>hydroxide</td><td>OH<sup>−</sup></td><td>sulfite</td><td>SO<sub>3</sub><sup>2−</sup></td></tr>
+    <tr><td>nitrate</td><td>NO<sub>3</sub><sup>−</sup></td><td>carbonate</td><td>CO<sub>3</sub><sup>2−</sup></td></tr>
+    <tr><td>nitrite</td><td>NO<sub>2</sub><sup>−</sup></td><td>chromate</td><td>CrO<sub>4</sub><sup>2−</sup></td></tr>
+    <tr><td>hydrogen carbonate</td><td>HCO<sub>3</sub><sup>−</sup></td><td>dichromate</td><td>Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup></td></tr>
+    <tr><td>acetate</td><td>CH<sub>3</sub>COO<sup>−</sup></td><td>peroxide</td><td>O<sub>2</sub><sup>2−</sup></td></tr>
+    <tr><td>cyanide</td><td>CN<sup>−</sup></td><td>phosphate</td><td>PO<sub>4</sub><sup>3−</sup></td></tr>
+    <tr><td>permanganate</td><td>MnO<sub>4</sub><sup>−</sup></td><td>hydrogen phosphate</td><td>HPO<sub>4</sub><sup>2−</sup></td></tr>
+  </table>
+
+  <h3>Formulas with polyatomic ions</h3>
+  <p>Use exactly the same charge-balancing rule. If you need <b>more than one</b> polyatomic ion, put it in <b>parentheses</b> and write the subscript outside. Never change the subscripts inside a polyatomic ion.</p>
+  <div class="cols2">
+    <div class="example"><div class="t">Calcium hydroxide</div>Ca<sup>2+</sup> + 2 OH<sup>−</sup> → <b>Ca(OH)<sub>2</sub></b></div>
+    <div class="example"><div class="t">Ammonium phosphate</div>3 NH<sub>4</sub><sup>+</sup> + PO<sub>4</sub><sup>3−</sup> → <b>(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub></b></div>
+  </div>
+  <div class="box tip"><div class="t">Common mistake</div>
+    Writing CaOH<sub>2</sub> instead of Ca(OH)<sub>2</sub>. Without parentheses, the 2 applies only to H, which is a different (and wrong) formula. When only one polyatomic ion is needed, as in NaNO<sub>3</sub>, no parentheses are used.
+  </div>
+</section>
+
+<section>
+  <h3>Oxyanions</h3>
+  <p>An <span class="key">oxyanion</span> is a polyatomic ion made of an element (usually a nonmetal) bonded to one or more oxygen atoms. Many elements form a family of oxyanions. Their names follow a pattern:</p>
+  <ul>
+    <li>The ion with <b>more</b> oxygen atoms ends in <b>-ate</b>; the ion with <b>fewer</b> ends in <b>-ite</b> (nitrate NO<sub>3</sub><sup>−</sup>, nitrite NO<sub>2</sub><sup>−</sup>).</li>
+    <li>For halogens with four oxyanions, add the prefix <b>per-</b> (one more O than -ate) and <b>hypo-</b> (one fewer O than -ite).</li>
+  </ul>
+  <table>
+    <tr><th>Ion</th><th>Name</th><th>Number of O atoms</th></tr>
+    <tr><td>ClO<sub>4</sub><sup>−</sup></td><td><b>per</b>chlor<b>ate</b></td><td>4 (most)</td></tr>
+    <tr><td>ClO<sub>3</sub><sup>−</sup></td><td>chlor<b>ate</b></td><td>3</td></tr>
+    <tr><td>ClO<sub>2</sub><sup>−</sup></td><td>chlor<b>ite</b></td><td>2</td></tr>
+    <tr><td>ClO<sup>−</sup></td><td><b>hypo</b>chlor<b>ite</b></td><td>1 (fewest)</td></tr>
+  </table>
+
+  <h2>Naming Ionic Compounds</h2>
+  <p>To name an ionic compound from its formula, apply these rules in order:</p>
+  <ol class="steps">
+    <li><b>Name the cation first, then the anion.</b> NaCl is sodium chloride, not chloride sodium.</li>
+    <li><b>A monatomic cation takes the name of the element.</b> Ca<sup>2+</sup> is the calcium ion.</li>
+    <li><b>A monatomic anion takes the root of the element name plus <em>-ide</em>.</b> Br<sup>−</sup> is bromide; N<sup>3−</sup> is nitride.</li>
+    <li><b>If the metal can form more than one ion</b>, show its charge with a Roman numeral in parentheses (the <em>Stock system</em>). Fe<sup>2+</sup> = iron(II); Fe<sup>3+</sup> = iron(III).</li>
+    <li><b>If the compound contains a polyatomic ion</b>, simply use the polyatomic ion's name. NaOH is sodium hydroxide.</li>
+  </ol>
+
+  <div class="example">
+    <div class="t">Worked example 5: name CuO</div>
+    Copper can be Cu<sup>+</sup> or Cu<sup>2+</sup>, so find its charge. Oxide is O<sup>2−</sup>, and there is one O for one Cu, so copper must be +2.<br>
+    Name: <b>copper(II) oxide</b>
+  </div>
+  <div class="example">
+    <div class="t">Worked example 6: name Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></div>
+    Three sulfates give 3 × (−2) = −6. Two Fe ions must give +6, so each Fe is +3.<br>
+    Name: <b>iron(III) sulfate</b>
+  </div>
+  <div class="example">
+    <div class="t">Worked example 7: name K<sub>2</sub>CrO<sub>4</sub> and NH<sub>4</sub>Cl</div>
+    Potassium has only one ion (K<sup>+</sup>), so no Roman numeral: <b>potassium chromate</b>.<br>
+    NH<sub>4</sub><sup>+</sup> is ammonium: <b>ammonium chloride</b>.
+  </div>
+  <div class="box"><div class="t">Summary flowchart</div>
+    Is the cation a metal with more than one possible charge (most transition metals, also Sn and Pb)? → <b>Yes:</b> add a Roman numeral. <b>No</b> (groups 1, 2, Al, Zn, Ag): no Roman numeral.<br>
+    Is the anion a single element? → <b>Yes:</b> use <em>-ide</em>. <b>No:</b> use the polyatomic ion's name.
+  </div>
+</section>
+
+<section>
+  <div class="practice">
+    <h3>Practice Set A: Names and Formulas</h3>
+    <p class="sans" style="font-size:9pt;margin-bottom:1mm"><b>Part 1: Write the formula.</b></p>
+    <ol>
+      <li>potassium iodide</li>
+      <li>barium chloride</li>
+      <li>aluminum sulfide</li>
+      <li>lithium nitride</li>
+      <li>copper(I) oxide</li>
+      <li>lead(IV) oxide</li>
+      <li>magnesium nitrate</li>
+      <li>sodium carbonate</li>
+      <li>aluminum hydroxide</li>
+      <li>ammonium sulfate</li>
+    </ol>
+    <p class="sans" style="font-size:9pt;margin:2mm 0 1mm"><b>Part 2: Name the compound.</b></p>
+    <ol start="11">
+      <li>CaO</li>
+      <li>Na<sub>3</sub>P</li>
+      <li>FeCl<sub>2</sub></li>
+      <li>CuSO<sub>4</sub></li>
+      <li>KMnO<sub>4</sub></li>
+      <li>Ca(ClO)<sub>2</sub></li>
+      <li>Ba(OH)<sub>2</sub></li>
+      <li>Fe<sub>2</sub>O<sub>3</sub></li>
+    </ol>
+    <p class="sans" style="font-size:9pt;margin:2mm 0 1mm"><b>Part 3: Think about it.</b></p>
+    <ol start="19" class="one">
+      <li>Explain why the formula of an ionic compound is called a <em>formula unit</em> rather than a molecular formula.</li>
+      <li>A student writes the formula for calcium nitrate as CaNO<sub>3</sub>2. Identify the mistake and write the correct formula.</li>
+      <li>Why does the name <em>sodium chloride</em> not need a Roman numeral, while <em>iron(III) chloride</em> does?</li>
+      <li>Name the four oxyanions of bromine: BrO<sub>4</sub><sup>−</sup>, BrO<sub>3</sub><sup>−</sup>, BrO<sub>2</sub><sup>−</sup>, BrO<sup>−</sup>.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ LESSON 4 ============ -->
+<section>
+  <div class="lesson-head" style="margin-top:6mm"><div class="num">LESSON 4</div><h1>Metallic Bonds and the Properties of Metals</h1></div>
+  <div class="focus"><div class="lbl">FOCUS QUESTION</div><div class="q">How do metals and ionic compounds compare and contrast?</div></div>
+
+  <h2>Metallic Bonds</h2>
+  <p>Although metals are not ionic, they share several properties with ionic compounds. In both cases, bonding is based on the <b>attraction of particles with unlike charges</b>. In the solid state, metals often form lattices similar to ionic crystal lattices. In such a lattice, each metal atom is surrounded by <b>8 to 12</b> other metal atoms.</p>
+
+  <h3>The electron sea model</h3>
+  <p>Metal atoms have few valence electrons, and they hold them loosely. In a metal lattice, the outer energy levels of neighbouring atoms overlap. The valence electrons are therefore not tied to any one atom; they move freely through the whole solid. The <span class="key">electron sea model</span> describes a metal as a lattice of positive metal ions (cations) immersed in a "sea" of moving valence electrons.</p>
+  <p>Electrons that are free to move and are not held by any specific atom are called <span class="key">delocalized electrons</span>. A <span class="key">metallic bond</span> is the attraction of a metallic cation for delocalized electrons.</p>
+
+  <div class="fig">
+    <svg width="440" height="170" viewBox="0 0 440 170" font-family="Inter, sans-serif">
+      <rect x="10" y="8" width="420" height="140" rx="12" fill="#e4eefb" stroke="#9db8e0"/>
+      <g id="ions">
+        <g font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+          <circle cx="60" cy="45" r="18" fill="#1659b8"/><text x="60" y="50">+</text>
+          <circle cx="130" cy="45" r="18" fill="#1659b8"/><text x="130" y="50">+</text>
+          <circle cx="200" cy="45" r="18" fill="#1659b8"/><text x="200" y="50">+</text>
+          <circle cx="270" cy="45" r="18" fill="#1659b8"/><text x="270" y="50">+</text>
+          <circle cx="340" cy="45" r="18" fill="#1659b8"/><text x="340" y="50">+</text>
+          <circle cx="400" cy="45" r="0" fill="#1659b8"/>
+          <circle cx="95" cy="110" r="18" fill="#1659b8"/><text x="95" y="115">+</text>
+          <circle cx="165" cy="110" r="18" fill="#1659b8"/><text x="165" y="115">+</text>
+          <circle cx="235" cy="110" r="18" fill="#1659b8"/><text x="235" y="115">+</text>
+          <circle cx="305" cy="110" r="18" fill="#1659b8"/><text x="305" y="115">+</text>
+          <circle cx="375" cy="110" r="18" fill="#1659b8"/><text x="375" y="115">+</text>
+        </g>
+      </g>
+      <g fill="#d9661a" font-size="9" text-anchor="middle">
+        <circle cx="95" cy="30" r="4"/><circle cx="165" cy="68" r="4"/><circle cx="25" cy="80" r="4"/>
+        <circle cx="235" cy="25" r="4"/><circle cx="305" cy="75" r="4"/><circle cx="380" cy="28" r="4"/>
+        <circle cx="130" cy="88" r="4"/><circle cx="200" cy="133" r="4"/><circle cx="270" cy="132" r="4"/>
+        <circle cx="60" cy="130" r="4"/><circle cx="340" cy="135" r="4"/><circle cx="410" cy="80" r="4"/>
+        <circle cx="235" cy="80" r="4"/><circle cx="95" cy="72" r="4"/><circle cx="340" cy="85" r="4"/>
+      </g>
+      <g font-size="10" fill="#1d2330">
+        <circle cx="30" cy="160" r="7" fill="#1659b8"/><text x="42" y="164">metal cation</text>
+        <circle cx="140" cy="160" r="4" fill="#d9661a"/><text x="150" y="164">delocalized valence electron (free to move)</text>
+      </g>
+    </svg>
+    <div class="cap">Figure 2. The electron sea model: fixed metal cations surrounded by mobile, delocalized electrons.</div>
+  </div>
+
+  <h2>Comparing Metals and Ionic Compounds</h2>
+  <table>
+    <tr><th>Feature</th><th>Ionic compounds</th><th>Metals</th></tr>
+    <tr><td>Particles</td><td>Cations and anions</td><td>Cations and delocalized electrons</td></tr>
+    <tr><td>Bond</td><td>Electrostatic attraction between oppositely charged ions</td><td>Attraction between cations and the electron sea</td></tr>
+    <tr><td>Structure</td><td>Crystal lattice</td><td>Lattice; each atom has 8–12 neighbours</td></tr>
+    <tr><td>Electrons</td><td>Transferred and held by the anions</td><td>Shared by all atoms, free to move</td></tr>
+    <tr><td>Melting point</td><td>High</td><td>Moderate to very high (varies a lot)</td></tr>
+    <tr><td>Conductivity (solid)</td><td>Does not conduct (ions fixed)</td><td>Conducts well (electrons move)</td></tr>
+    <tr><td>Conductivity (molten/dissolved)</td><td>Conducts (ions move)</td><td>Conducts</td></tr>
+    <tr><td>When hammered</td><td>Brittle: shatters</td><td>Malleable: bends and flattens</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Properties of Metals</h2>
+  <p>The physical properties of metals can be explained by metallic bonding. These properties also give evidence about the strength of metallic bonds.</p>
+
+  <h3>Melting and boiling points</h3>
+  <p>The melting points of metals vary greatly. Mercury is a liquid at room temperature (melting point −39 °C), which makes it useful in scientific instruments such as older thermometers and barometers. Gallium melts at about 30 °C, so it can melt in your hand. Tungsten has the highest melting point of any metal, 3422 °C, so it is used in light-bulb filaments.</p>
+  <p>Boiling points of metals tend to be <b>extremely high</b>. Melting does not require much energy to move cations and electrons past each other; the metal stays bonded as a liquid. But boiling requires each atom to be separated completely from the electron sea and the other cations, which needs a great deal of energy. For example, copper melts at 1085 °C but boils at 2562 °C.</p>
+
+  <h3>Malleability, ductility and durability</h3>
+  <p>Metals are <span class="key">malleable</span> (can be hammered into sheets) and <span class="key">ductile</span> (can be drawn into wires). When a force is applied, the cations slide past each other, but the electron sea moves with them and keeps them bonded. The metal changes shape instead of breaking. In an ionic crystal, sliding brings like charges next to each other; they repel, and the crystal shatters.</p>
+
+  <div class="fig">
+    <svg width="460" height="120" viewBox="0 0 460 120" font-family="Inter, sans-serif" font-size="11">
+      <text x="10" y="14" font-weight="700" fill="#1659b8">Metal: layers slide, bonds remain</text>
+      <rect x="10" y="22" width="190" height="72" rx="8" fill="#e4eefb"/>
+      <g fill="#1659b8"><circle cx="35" cy="42" r="10"/><circle cx="65" cy="42" r="10"/><circle cx="95" cy="42" r="10"/><circle cx="125" cy="42" r="10"/>
+      <circle cx="75" cy="74" r="10"/><circle cx="105" cy="74" r="10"/><circle cx="135" cy="74" r="10"/><circle cx="165" cy="74" r="10"/></g>
+      <text x="150" y="46" fill="#d9661a" font-size="14">⟵ push</text>
+      <text x="10" y="110" fill="#334">Same environment after sliding → bends</text>
+      <text x="250" y="14" font-weight="700" fill="#d9661a">Ionic crystal: like charges meet</text>
+      <rect x="250" y="22" width="200" height="72" rx="8" fill="#fbeee2"/>
+      <g font-weight="700" text-anchor="middle" fill="#fff">
+        <circle cx="275" cy="42" r="10" fill="#1659b8"/><text x="275" y="46">+</text>
+        <circle cx="305" cy="42" r="10" fill="#d9661a"/><text x="305" y="46">−</text>
+        <circle cx="335" cy="42" r="10" fill="#1659b8"/><text x="335" y="46">+</text>
+        <circle cx="365" cy="42" r="10" fill="#d9661a"/><text x="365" y="46">−</text>
+        <circle cx="305" cy="74" r="10" fill="#1659b8"/><text x="305" y="78">+</text>
+        <circle cx="335" cy="74" r="10" fill="#d9661a"/><text x="335" y="78">−</text>
+        <circle cx="365" cy="74" r="10" fill="#1659b8"/><text x="365" y="78">+</text>
+        <circle cx="395" cy="74" r="10" fill="#d9661a"/><text x="395" y="78">−</text>
+      </g>
+      <text x="250" y="110" fill="#334">+ above +, − above − → repulsion → shatters</text>
+    </svg>
+    <div class="cap">Figure 3. After a layer is shifted, a metal keeps its bonding, but an ionic crystal lines up like charges.</div>
+  </div>
+  <p>Metals are generally <b>durable</b>. Their cations are strongly attracted to the delocalized electrons and are not easily removed from the metal.</p>
+
+  <h3>Thermal and electrical conductivity</h3>
+  <p>Delocalized electrons move easily through the metal. They carry electric current when a voltage is applied, and they carry heat quickly from one place to another. This is why copper is used in electrical wiring and why metal pans heat up quickly.</p>
+
+  <h3>Luster</h3>
+  <p>Delocalized electrons interact with light: they absorb and release photons. This gives metals their shiny appearance, called <span class="key">luster</span>.</p>
+
+  <h3>Hardness and strength</h3>
+  <p>The more delocalized electrons there are, the stronger the metallic bonds. Alkali metals (group 1) have only one valence electron per atom, so they are soft enough to cut with a knife. Transition metals such as chromium, iron and nickel can delocalize both their outer <em>s</em> electrons and some inner <em>d</em> electrons. This produces a denser electron sea, so these metals are hard and strong. Chromium is one of the hardest elements.</p>
+
+  <div class="box"><div class="t">Remember</div>
+    Almost every property of metals (conductivity, malleability, ductility, luster, high boiling point) comes from one idea: <b>mobile, delocalized electrons</b> holding a lattice of cations together.
+  </div>
+</section>
+
+<section>
+  <h2>Metal Alloys</h2>
+  <p>Because of the nature of metallic bonding, it is easy to add other elements to a metal. An <span class="key">alloy</span> is a mixture of elements that has metallic properties. Alloys are made by melting a metal and mixing in the other elements, then letting the mixture cool. Alloys often have properties that are better than those of the pure metal; for example, they can be harder, stronger or more resistant to corrosion.</p>
+  <div class="cols2">
+    <div class="box">
+      <div class="t">Substitutional alloy</div>
+      Some atoms of the original metal are <b>replaced</b> by other atoms of <b>similar size</b>.<br>
+      <i>Examples:</i> brass (copper + zinc), sterling silver (silver + copper), 14-karat gold.
+    </div>
+    <div class="box">
+      <div class="t">Interstitial alloy</div>
+      <b>Small atoms</b> fit into the <b>holes (interstices)</b> between the larger metal atoms.<br>
+      <i>Example:</i> carbon steel, where small carbon atoms sit between iron atoms, making it harder and stronger than pure iron.
+    </div>
+  </div>
+  <table>
+    <tr><th>Alloy</th><th>Composition</th><th>Uses</th></tr>
+    <tr><td>Brass</td><td>Copper and zinc</td><td>Musical instruments, plumbing fittings, hardware</td></tr>
+    <tr><td>Bronze</td><td>Copper and tin</td><td>Statues, medals, bells</td></tr>
+    <tr><td>Stainless steel</td><td>Iron, chromium, nickel, carbon</td><td>Cutlery, kitchen sinks, surgical instruments</td></tr>
+    <tr><td>Carbon steel</td><td>Iron and carbon</td><td>Buildings, bridges, car bodies</td></tr>
+    <tr><td>Sterling silver</td><td>Silver and copper</td><td>Jewellery, tableware</td></tr>
+    <tr><td>Solder</td><td>Tin and lead (or tin and copper)</td><td>Joining electrical components</td></tr>
+  </table>
+
+  <div class="practice">
+    <h3>Practice Set B: Metallic Bonds and Properties</h3>
+    <ol class="one">
+      <li>Define <b>metallic bond</b> and <b>delocalized electrons</b>.</li>
+      <li>Describe the electron sea model in your own words. Draw a labelled sketch.</li>
+      <li>State two similarities and two differences between metallic bonding and ionic bonding.</li>
+      <li>Explain why metals are malleable but ionic crystals are brittle.</li>
+      <li>Explain why the boiling points of metals are much higher than their melting points.</li>
+      <li>Why does a solid metal conduct electricity, while a solid ionic compound does not?</li>
+      <li>Sodium can be cut with a knife, but chromium is very hard. Explain this difference using the number of delocalized electrons.</li>
+      <li>Classify each alloy as substitutional or interstitial: (a) brass (b) carbon steel (c) sterling silver.</li>
+      <li>Why do engineers often use alloys instead of pure metals? Give one example.</li>
+      <li>Mercury and tungsten are both metals. Suggest one use for each based on its melting point.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ REVIEW ============ -->
+<section>
+  <div class="lesson-head" style="border-radius:3mm;margin-top:5mm"><div class="num">CHAPTER REVIEW</div><h1>Mixed Practice</h1></div>
+
+  <div class="practice">
+    <h3>Section 1: Multiple Choice</h3>
+    <ol class="one">
+      <li>What is the correct formula for aluminum oxide?
+        <div class="opts"><span>A. AlO</span><span>B. Al<sub>3</sub>O<sub>2</sub></span><span>C. Al<sub>2</sub>O<sub>3</sub></span><span>D. AlO<sub>3</sub></span></div></li>
+      <li>Which is the correct name for CuCl<sub>2</sub>?
+        <div class="opts"><span>A. copper chloride</span><span>B. copper(I) chloride</span><span>C. copper(II) chloride</span><span>D. copper dichloride</span></div></li>
+      <li>Which ion has the most oxygen atoms?
+        <div class="opts"><span>A. chlorite</span><span>B. hypochlorite</span><span>C. chlorate</span><span>D. perchlorate</span></div></li>
+      <li>The formula unit of magnesium chloride shows the ions in a ratio of:
+        <div class="opts"><span>A. 1 : 1</span><span>B. 1 : 2</span><span>C. 2 : 1</span><span>D. 2 : 3</span></div></li>
+      <li>In a metal lattice, each atom is typically surrounded by:
+        <div class="opts"><span>A. 2–4 atoms</span><span>B. 4–6 atoms</span><span>C. 8–12 atoms</span><span>D. 20 atoms</span></div></li>
+      <li>Which property of metals is mainly due to delocalized electrons interacting with light?
+        <div class="opts"><span>A. luster</span><span>B. ductility</span><span>C. hardness</span><span>D. density</span></div></li>
+      <li>Which formula is written correctly?
+        <div class="opts"><span>A. Mg(OH)<sub>2</sub></span><span>B. MgOH<sub>2</sub></span><span>C. Mg<sub>2</sub>OH</span><span>D. Mg(OH)</span></div></li>
+      <li>Carbon steel is an example of:
+        <div class="opts"><span>A. an ionic compound</span><span>B. a substitutional alloy</span><span>C. an interstitial alloy</span><span>D. a pure metal</span></div></li>
+    </ol>
+  </div>
+
+  <div class="practice">
+    <h3>Section 2: Complete the Table</h3>
+    <table>
+      <tr><th>Cation</th><th>Anion</th><th>Formula</th><th>Name</th></tr>
+      <tr><td>K<sup>+</sup></td><td>S<sup>2−</sup></td><td><span class="blank"></span></td><td><span class="blank" style="min-width:45mm"></span></td></tr>
+      <tr><td>Ca<sup>2+</sup></td><td>PO<sub>4</sub><sup>3−</sup></td><td><span class="blank"></span></td><td><span class="blank" style="min-width:45mm"></span></td></tr>
+      <tr><td>Fe<sup>3+</sup></td><td>NO<sub>3</sub><sup>−</sup></td><td><span class="blank"></span></td><td><span class="blank" style="min-width:45mm"></span></td></tr>
+      <tr><td>NH<sub>4</sub><sup>+</sup></td><td>CO<sub>3</sub><sup>2−</sup></td><td><span class="blank"></span></td><td><span class="blank" style="min-width:45mm"></span></td></tr>
+      <tr><td>Sn<sup>4+</sup></td><td>O<sup>2−</sup></td><td><span class="blank"></span></td><td><span class="blank" style="min-width:45mm"></span></td></tr>
+      <tr><td>Al<sup>3+</sup></td><td>SO<sub>4</sub><sup>2−</sup></td><td><span class="blank"></span></td><td><span class="blank" style="min-width:45mm"></span></td></tr>
+    </table>
+  </div>
+
+  <div class="practice">
+    <h3>Section 3: Extended Response</h3>
+    <ol class="one">
+      <li><b>Focus question.</b> In a short paragraph, answer: <em>How do metals and ionic compounds compare and contrast?</em> Include structure, bonding, conductivity and response to force.</li>
+      <li>A sample of an unknown solid is shiny, bends when hammered and conducts electricity as a solid. A second solid is white, shatters when hammered and conducts only when dissolved in water. Identify which is a metal and which is an ionic compound, and justify your answer.</li>
+      <li>Determine the charge on the metal ion in Mn<sub>2</sub>O<sub>7</sub>, then name the compound.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ ANSWERS ============ -->
+<section class="ans page-break">
+  <div class="lesson-head" style="border-radius:3mm;margin:0 0 4mm"><div class="num">ANSWER KEY</div><h1>Check Your Work</h1></div>
+  <div class="cols2">
+    <div>
+      <h3>Practice Set A</h3>
+      <ol>
+        <li>KI</li><li>BaCl<sub>2</sub></li><li>Al<sub>2</sub>S<sub>3</sub></li><li>Li<sub>3</sub>N</li><li>Cu<sub>2</sub>O</li>
+        <li>PbO<sub>2</sub></li><li>Mg(NO<sub>3</sub>)<sub>2</sub></li><li>Na<sub>2</sub>CO<sub>3</sub></li><li>Al(OH)<sub>3</sub></li><li>(NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></li>
+        <li>calcium oxide</li><li>sodium phosphide</li><li>iron(II) chloride</li><li>copper(II) sulfate</li><li>potassium permanganate</li>
+        <li>calcium hypochlorite</li><li>barium hydroxide</li><li>iron(III) oxide</li>
+        <li>An ionic compound is a continuous lattice of ions, not separate molecules. The formula unit only shows the simplest ratio of the ions.</li>
+        <li>The nitrate ion must be in parentheses with the subscript outside: Ca(NO<sub>3</sub>)<sub>2</sub>.</li>
+        <li>Sodium forms only one ion (Na<sup>+</sup>), so its charge is never in doubt. Iron can form Fe<sup>2+</sup> or Fe<sup>3+</sup>, so the Roman numeral is needed to show which.</li>
+        <li>perbromate, bromate, bromite, hypobromite</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Practice Set B</h3>
+      <ol>
+        <li>Metallic bond: the attraction of a metallic cation for delocalized electrons. Delocalized electrons: electrons that move freely through the metal and are not held by any specific atom.</li>
+        <li>Metal cations sit in a fixed lattice surrounded by a "sea" of mobile valence electrons that belong to the whole metal.</li>
+        <li>Similar: both involve attraction between opposite charges and both form lattices. Different: ionic bonds have anions while metals have free electrons; metals conduct as solids and are malleable, but ionic solids do not conduct and are brittle.</li>
+        <li>In metals, cations slide but the electron sea keeps them bonded. In ionic crystals, sliding puts like charges together, and the repulsion shatters the crystal.</li>
+        <li>Melting only lets particles move past each other while still bonded. Boiling requires atoms to be pulled completely away from the electron sea, which needs much more energy.</li>
+        <li>A metal has mobile electrons to carry charge. In a solid ionic compound, the ions are locked in place.</li>
+        <li>Sodium has one valence electron per atom, so it has a thin electron sea and weak bonds. Chromium delocalizes <em>s</em> and <em>d</em> electrons, which gives stronger bonding.</li>
+        <li>(a) substitutional (b) interstitial (c) substitutional</li>
+        <li>Alloys can be harder, stronger or more corrosion-resistant. For example, stainless steel does not rust like iron.</li>
+        <li>Mercury: thermometers or barometers, because it is liquid at room temperature. Tungsten: light-bulb filaments, because it withstands very high temperatures.</li>
+      </ol>
+    </div>
+  </div>
+  <h3>Chapter Review</h3>
+  <p><b>Section 1:</b> 1 C · 2 C · 3 D · 4 B · 5 C · 6 A · 7 A · 8 C</p>
+  <p><b>Section 2:</b> K<sub>2</sub>S, potassium sulfide · Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>, calcium phosphate · Fe(NO<sub>3</sub>)<sub>3</sub>, iron(III) nitrate · (NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub>, ammonium carbonate · SnO<sub>2</sub>, tin(IV) oxide · Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>, aluminum sulfate</p>
+  <p><b>Section 3:</b> (1) Both are lattices held together by attraction of opposite charges. Ionic compounds contain cations and anions, are brittle, and conduct only when molten or dissolved. Metals contain cations in a sea of delocalized electrons, are malleable and ductile, and conduct as solids. (2) The first solid is the metal (luster, malleable, conducts as a solid). The second is ionic (brittle, conducts only when its ions are free to move in solution). (3) Seven O<sup>2−</sup> give −14, so two Mn give +14 and each Mn is +7: manganese(VII) oxide.</p>
+</section>
+
+</body>
+</html>
