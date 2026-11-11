@@ -27,20 +27,22 @@ FM = os.path.join(HERE, "fonts", "Cairo-700.ttf")
 FSYM = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
 # scene boundaries (seconds) and voice start times
-SC = [0.0, 4.7, 9.3, 17.3, 22.6, 28.3, 34.8, 42.0]
+SC = [0.0, 3.9, 8.5, 15.5, 20.4, 25.0, 31.6, 37.6]
 DURATION = SC[-1]
 VOICE = [(f"v{i + 1}.wav", SC[i] + 0.25) for i in range(7)]
-SFX = [
-    ("typing.mp3", 0.3, 0.5), ("pop.mp3", 0.6, 0.7),
-    ("whoosh.mp3", 4.65, 0.6), ("ticks.mp3", 5.05, 0.5), ("ding.mp3", 6.05, 0.6),
-    ("whoosh.mp3", 9.25, 0.6), ("pop.mp3", 9.45, 0.6), ("stamp.mp3", 10.45, 1.0),
-    ("ticks.mp3", 12.2, 0.5), ("ding.mp3", 13.7, 0.5), ("pop.mp3", 15.8, 0.6),
-    ("whoosh.mp3", 17.25, 0.6), ("whoosh.mp3", 18.3, 0.35), ("pop.mp3", 20.5, 0.6), ("ding.mp3", 21.3, 0.5),
-    ("whoosh.mp3", 22.55, 0.6), ("digital.mp3", 23.0, 0.45), ("pop.mp3", 24.6, 0.5),
-    ("pop.mp3", 24.9, 0.5), ("pop.mp3", 25.2, 0.5), ("ding.mp3", 26.85, 0.5),
-    ("whoosh.mp3", 28.25, 0.6), ("ding.mp3", 31.35, 0.6),
-    ("whoosh.mp3", 34.75, 0.6), ("pop.mp3", 36.2, 0.6), ("ding.mp3", 37.0, 0.4),
+# (file, scene index, time within scene, volume) -- synced to the voice's word timings
+_SFX = [
+    ("typing.mp3", 0, 0.3, 0.5), ("pop.mp3", 0, 0.6, 0.7),
+    ("whoosh.mp3", 1, -0.05, 0.6), ("ticks.mp3", 1, 0.35, 0.5), ("ding.mp3", 1, 1.5, 0.6),
+    ("whoosh.mp3", 2, -0.05, 0.6), ("pop.mp3", 2, 0.15, 0.6), ("stamp.mp3", 2, 1.0, 1.0),
+    ("ticks.mp3", 2, 2.8, 0.5), ("ding.mp3", 2, 4.2, 0.5), ("pop.mp3", 2, 5.2, 0.6),
+    ("whoosh.mp3", 3, -0.05, 0.6), ("whoosh.mp3", 3, 1.0, 0.35), ("pop.mp3", 3, 3.0, 0.6), ("ding.mp3", 3, 3.7, 0.5),
+    ("whoosh.mp3", 4, -0.05, 0.6), ("digital.mp3", 4, 0.4, 0.45), ("pop.mp3", 4, 1.75, 0.5),
+    ("pop.mp3", 4, 2.05, 0.5), ("pop.mp3", 4, 2.35, 0.5), ("ding.mp3", 4, 3.0, 0.5),
+    ("whoosh.mp3", 5, -0.05, 0.6), ("ding.mp3", 5, 3.05, 0.6),
+    ("whoosh.mp3", 6, -0.05, 0.6), ("pop.mp3", 6, 1.4, 0.6), ("ding.mp3", 6, 2.2, 0.4),
 ]
+SFX = [(f, SC[i] + at, v) for f, i, at, v in _SFX]
 
 _fc = {}
 
@@ -272,8 +274,8 @@ def scene1(c, t, lt, A):  # hook
     draw_equations(c, t, lt, 0)
     put(c, A["card"], 540, 690, 1, 0, cl(lt / 0.25))
     pop(c, text_img("متى بستخدم", 104, INK), 540, 520, lt, 0.35)
-    pop(c, pill("الرياضيات", 120), 540, 700, lt, 1.25)
-    pop(c, text_img("في حياتي؟", 104, INK), 540, 865, lt, 2.2)
+    pop(c, pill("الرياضيات", 120), 540, 700, lt, 1.8)
+    pop(c, text_img("في حياتي؟", 104, INK), 540, 865, lt, 2.6)
     # small sticker, corner only
     k = back((lt - 0.6) / 0.4)
     if lt > 0.6:
@@ -290,7 +292,7 @@ def scene2(c, t, lt, A):  # twist: every day
     if lt > 0.3:
         put(c, text_img(digits, 300, GREEN), 540, 640, back((lt - 0.3) / 0.35))
         pop(c, text_img("يوم في السنة", 70, GREY), 540, 860, lt, 0.5)
-    pop(c, pill("الجواب: كل يوم!", 104, bg=ACCENT, shade=(196, 126, 20)), 540, 1110, lt, 1.35, 0.45, -8)
+    pop(c, pill("الجواب: كل يوم!", 104, bg=ACCENT, shade=(196, 126, 20)), 540, 1110, lt, 1.5, 0.45, -8)
     pop(c, text_img("…وبدون ما تنتبه", 72, INK), 540, 1290, lt, 2.6)
 
 
@@ -305,7 +307,7 @@ def scene3(c, t, lt, A):  # shopping
     td = ImageDraw.Draw(tag)
     swing = 4 * math.sin(t * 2.2)
     # strike + new price
-    strike = out3((lt - 2.9) / 0.35)
+    strike = out3((lt - 2.8) / 0.35)
     if strike > 0:
         x0, x1 = 120, 120 + (tag.width - 240) * strike
         td.line((x0, 205, x1, 175), fill=RED, width=16)
@@ -313,18 +315,18 @@ def scene3(c, t, lt, A):  # shopping
     if lt > 0:
         put(c, tag, 540, 760, 0.3 + 0.7 * k if k < 1 else 1, rot=-5 + swing + (1 - cl(k)) * 20)
     # stamp
-    if lt > 1.15:
-        ks = out3((lt - 1.15) / 0.18)
+    if lt > 1.0:
+        ks = out3((lt - 1.0) / 0.18)
         sc = 2.4 - 1.4 * ks
-        sh = (1 - cl((lt - 1.33) / 0.25)) * 10 if lt > 1.33 else 0
+        sh = (1 - cl((lt - 1.18) / 0.25)) * 10 if lt > 1.18 else 0
         put(c, A["stamp"], 760 + sh * math.sin(t * 90), 560, sc, rot=14, alpha=0.4 + 0.6 * ks)
     # new price counter
-    if lt > 2.9:
-        v = 200 - int(round(60 * out3((lt - 2.9) / 1.4)))
+    if lt > 2.8:
+        v = 200 - int(round(60 * out3((lt - 2.8) / 1.4)))
         s = "".join("٠١٢٣٤٥٦٧٨٩"[int(ch)] for ch in str(v)) + " ريال"
-        put(c, pill(s, 110, bg=GREEN), 540, 1080, back((lt - 2.9) / 0.4))
-    pop(c, text_img("٢٠٠ − ٣٠٪ = ١٤٠", 92, INK), 540, 1290, lt, 4.3)
-    pop(c, pill("نسبة مئوية ٪", 76, bg=ACCENT, shade=(196, 126, 20)), 540, 1460, lt, 6.5)
+        put(c, pill(s, 110, bg=GREEN), 540, 1080, back((lt - 2.8) / 0.4))
+    pop(c, text_img("٢٠٠ − ٣٠٪ = ١٤٠", 92, INK), 540, 1290, lt, 4.2)
+    pop(c, pill("نسبة مئوية ٪", 76, bg=ACCENT, shade=(196, 126, 20)), 540, 1460, lt, 5.2)
 
 
 ROUTE = [(200, 1080), (260, 820), (520, 900), (620, 700), (860, 640), (880, 470)]
@@ -350,7 +352,7 @@ def scene4(c, t, lt, A):  # time & speed
     pop(c, A["pin_r"], 880, 395, lt, 0.4)
     pop(c, text_img("١٢٠ كم", 64, INK), 330, 690, lt, 0.7)
     # car
-    u = out3((lt - 0.3) / 2.9) if lt > 0.3 else 0
+    u = out3((lt - 0.3) / 2.5) if lt > 0.3 else 0
     x, y = bez(ROUTE, u)
     x2, y2 = bez(ROUTE, min(1, u + 0.01))
     ang = -math.degrees(math.atan2(y2 - y, x2 - x))
@@ -359,9 +361,9 @@ def scene4(c, t, lt, A):  # time & speed
     # clock
     clk = icon_clock(220, INK, ang=t * 6)
     pop(c, clk, 860, 1000, lt, 0.5)
-    pop(c, text_img("١٢٠ كم ÷ ٨٠ كم/س", 88, INK), 540, 1260, lt, 3.2)
-    pop(c, pill("= ساعة ونص", 100), 540, 1420, lt, 4.0)
-    pop(c, pill("قسمة وسرعة", 64, bg=ACCENT, shade=(196, 126, 20)), 540, 1570, lt, 3.55)
+    pop(c, text_img("١٢٠ كم ÷ ٨٠ كم/س", 88, INK), 540, 1260, lt, 3.0)
+    pop(c, pill("= ساعة ونص", 100), 540, 1420, lt, 3.7)
+    pop(c, pill("قسمة وسرعة", 64, bg=ACCENT, shade=(196, 126, 20)), 540, 1570, lt, 3.3)
 
 
 random.seed(11)
@@ -395,7 +397,7 @@ def scene5(c, t, lt, A):  # phone / apps
             u = out3((lt - at) / 0.45)
             put(c, A[key], 540 + (x - 540) * u, 860 + (y - 860) * u, 0.3 + 0.7 * back((lt - at) / 0.45),
                 rot=4 * math.sin(t * 2 + i))
-    pop(c, pill("كل تطبيق = رياضيات", 96), 540, 1470, lt, 4.0)
+    pop(c, pill("كل تطبيق = رياضيات", 96), 540, 1470, lt, 3.0)
 
 
 def scene6(c, t, lt, A):  # way of thinking
@@ -512,7 +514,7 @@ def mix_audio(path):
     fl.append(f"[{n}:a]aresample=44100,aformat=channel_layouts=stereo,volume=0.2,atrim=0:{DURATION},"
               f"afade=t=in:d=0.5,afade=t=out:st={DURATION - 2}:d=2[m]")
     lb.append("[m]")
-    fl.append("".join(lb) + f"amix=inputs={n + 1}:normalize=0,volume=4dB,alimiter=limit=0.95[out]")
+    fl.append("".join(lb) + f"amix=inputs={n + 1}:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[out]")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *ins, "-filter_complex", ";".join(fl),
                     "-map", "[out]", "-t", str(DURATION), "-c:a", "aac", "-b:a", "192k", path], check=True)
 
