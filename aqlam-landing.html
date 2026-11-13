@@ -33,6 +33,7 @@
     --shadow:0 10px 30px rgba(13,88,42,.12);
   }
   *{box-sizing:border-box}
+  html,body{direction:rtl;text-align:right}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:"Tajawal",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:var(--ink);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased}
   img{max-width:100%;display:block}
@@ -531,6 +532,9 @@ var SUBJECTS = {
   islamic:   { tutor: "تربية إسلامية",    name: "التربية الإسلامية" },
   social:    { tutor: "دراسات اجتماعية",  name: "الدراسات الاجتماعية" }
 };
+
+document.documentElement.dir = "rtl";
+document.documentElement.lang = "ar";
 
 (function(){
   var params = new URLSearchParams(location.search);
