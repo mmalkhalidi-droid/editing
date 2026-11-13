@@ -103,6 +103,36 @@
   .card p{margin:0;color:var(--muted);font-size:.98rem}
 
   .steps-bg{background:linear-gradient(180deg,#f6fcf8,#fff)}
+  .rep-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .rep-grid > *{min-width:0}
+  .rep-list{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:14px}
+  .rep-list li{display:flex;gap:12px;align-items:flex-start}
+  .rep-list .ic{width:40px;height:40px;border-radius:12px;background:var(--mint);color:var(--green-800);display:grid;place-items:center;flex:none}
+  .rep-list .ic svg{width:20px;height:20px}
+  .rep-list b{display:block;font-size:1.05rem}
+  .rep-list span{color:var(--muted);font-size:.96rem}
+  .report{background:#fff;border-radius:22px;box-shadow:0 24px 60px rgba(13,88,42,.18);overflow:hidden;border:1px solid var(--line);max-width:460px;margin-inline:auto;width:100%}
+  .rep-head{background:var(--green);color:#fff;padding:18px 22px}
+  .rep-head small{opacity:.9;font-weight:600}
+  .rep-head h3{margin:2px 0 8px;font-size:1.35rem;font-weight:900}
+  .rep-meta{display:flex;gap:22px;font-size:.88rem}
+  .rep-meta b{display:block;font-size:.98rem}
+  .rep-body{padding:18px 22px;display:grid;gap:16px}
+  .rep-note{background:var(--mint);border-radius:14px;padding:12px 14px;font-size:.93rem;color:var(--ink)}
+  .rep-sec{font-weight:800;font-size:1rem;margin:0 0 6px}
+  .skill{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;font-size:.92rem;font-weight:600;margin-bottom:8px}
+  .bars{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+  .bars i{height:7px;border-radius:4px;background:#e7ece9}
+  .bars.mid i.on{background:#D99A21}
+  .bars.good i.on{background:var(--green-600)}
+  .score{font-size:.82rem;font-weight:800;color:#b07a10}
+  .score.good{color:var(--green-600)}
+  .plan{display:grid;gap:8px;font-size:.9rem}
+  .plan div{display:flex;gap:10px;align-items:flex-start}
+  .plan .pt{width:12px;height:12px;border-radius:50%;border:3px solid var(--green);flex:none;margin-top:6px}
+  .plan .pt.goal{background:var(--green)}
+  .plan b{font-weight:800}
+  .rep-tag{display:inline-block;background:#fff4d6;color:#7a5500;font-size:.75rem;font-weight:800;padding:2px 10px;border-radius:999px;margin-inline-start:8px;vertical-align:middle}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
   .step{position:relative;background:#fff;border-radius:var(--radius);padding:30px 24px 24px;box-shadow:var(--shadow)}
   .step .num{width:46px;height:46px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;font-size:1.3rem;display:grid;place-items:center;margin-bottom:12px;box-shadow:0 0 0 6px var(--mint)}
@@ -166,6 +196,7 @@
     .strip-grid{grid-template-columns:1fr 1fr;row-gap:14px}
     .strip-item{justify-content:flex-start;font-size:.95rem}
     .steps{grid-template-columns:1fr}
+    .rep-grid{grid-template-columns:1fr;gap:32px}
     .reviews{grid-template-columns:1fr}
     section{padding:56px 0}
     .nav-wa span{display:none}
@@ -200,9 +231,9 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="badge"><span class="dot"></span>الحصة الأولى مجانية</span>
+        <span class="badge"><span class="dot"></span>حصة مجانية + تقرير مستوى مجاني</span>
         <h1 id="headline">مدرس خصوصي لطفلك في <span class="hl">جميع المواد</span></h1>
-        <p class="sub" id="subheadline">معلمون متخصصون لجميع المراحل الدراسية، يتابعون طفلك خطوة بخطوة حتى يفهم ويتقدّم ويرفع درجاته. جرّب أول حصة مجاناً وشوف الفرق بنفسك.</p>
+        <p class="sub" id="subheadline">معلمون متخصصون لجميع المراحل الدراسية، يتابعون طفلك خطوة بخطوة حتى يفهم ويتقدّم ويرفع درجاته. احجز أول حصة مجاناً، واستلم بعدها تقريراً مفصّلاً عن مستوى طفلك وخطة واضحة لتطويره.</p>
         <div class="ctas">
           <a class="btn btn-primary js-form" href="#" data-track="form_hero">
             احجز الحصة المجانية
@@ -215,7 +246,7 @@
         </div>
         <div class="micro">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>بدون أي التزام</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>التسجيل خلال دقيقة</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>تقرير مستوى مجاني</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>مقاعد محدودة</span>
         </div>
       </div>
@@ -226,7 +257,7 @@
         </div>
         <div class="float f1">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-3.5 2 1-4-3-2.7 4-.3L12 6l1.5 4 4 .3-3 2.7 1 4z"/></svg></span>
-          <span>اهتمام فردي بطفلك<small>خطة تناسب مستواه</small></span>
+          <span>تقرير مجاني عن طفلك<small>بعد الحصة الأولى</small></span>
         </div>
         <div class="float f2">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
@@ -242,7 +273,7 @@
       <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>جميع المواد الدراسية</div>
       <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V10m4 10V6m4 14v-8m4 8V4"/></svg>جميع المراحل الدراسية</div>
       <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>معلمون متخصصون</div>
-      <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>أول حصة مجانية</div>
+      <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>حصة وتقرير مجاناً</div>
     </div>
   </div>
 
@@ -279,8 +310,51 @@
     </div>
   </section>
 
+  <!-- ================= FREE REPORT ================= -->
+  <section class="steps-bg" id="report">
+    <div class="wrap rep-grid">
+      <div>
+        <p class="eyebrow">هدية مع الحصة المجانية</p>
+        <h2>تقرير مجاني عن مستوى طفلك</h2>
+        <p class="lead" style="margin-bottom:24px">بعد الحصة يكتب المعلم تقريراً خاصاً بطفلك، يوضّح لك وين مستواه اليوم وكيف يوصل للهدف. التقرير لك حتى لو ما كمّلت معنا.</p>
+        <ul class="rep-list">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div><b>ملاحظات المعلم</b><span>كيف تفاعل طفلك وش لاحظ المعلم خلال الحصة.</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V10m4 10V6m4 14v-8m4 8V4"/></svg></span><div><b>تقييم المهارات من 5</b><span>تقييم واضح لكل مهارة في المادة.</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-3.5 2 1-4-3-2.7 4-.3L12 6l1.5 4 4 .3-3 2.7 1 4z"/></svg></span><div><b>نقاط القوة ونقاط التطوير</b><span>تعرف بالضبط وين طفلك متميز ووين يحتاج دعم.</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><div><b>خطة تعلّم بهدف واضح</b><span>خطة مقسّمة على الحصص توصل طفلك للهدف.</span></div></li>
+        </ul>
+        <a class="btn btn-primary js-form" href="#" data-track="form_report">احجز الحصة واحصل على التقرير</a>
+      </div>
+
+      <div class="report" aria-label="مثال على تقرير أقلام">
+        <div class="rep-head">
+          <small>أقلام · خطة تعلّم شخصية</small><span class="rep-tag">مثال</span>
+          <h3>خطة تعلّم سارة</h3>
+          <div class="rep-meta"><div>المادة<b id="rep-subject">الرياضيات</b></div><div>الصف<b>السادس</b></div></div>
+        </div>
+        <div class="rep-body">
+          <div class="rep-note">"سارة متفاعلة وذكية وتفهم الفكرة بسرعة. تحتاج تدريب إضافي على المسائل الكلامية، وبنركّز عليها في الحصص الجاية."</div>
+          <div>
+            <p class="rep-sec">تقييم المهارات</p>
+            <div class="skill">فهم المفاهيم<span class="score good">4/5 · قوي</span><div class="bars good"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="skill">حل المسائل<span class="score">3/5 · في تطوّر</span><div class="bars mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+            <div class="skill">مهارات الاختبار<span class="score">3/5 · في تطوّر</span><div class="bars mid"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          </div>
+          <div>
+            <p class="rep-sec">الخطة</p>
+            <div class="plan">
+              <div><span class="pt"></span><span><b>الحصص 1–6:</b> تثبيت الأساسيات</span></div>
+              <div><span class="pt"></span><span><b>الحصص 7–12:</b> تدريب مكثّف على المسائل</span></div>
+              <div><span class="pt goal"></span><span><b>الهدف:</b> حل المسائل بثقة قبل نهاية الفصل</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= HOW IT WORKS ================= -->
-  <section class="steps-bg">
+  <section>
     <div class="wrap">
       <div class="center">
         <p class="eyebrow">خطوات بسيطة</p>
@@ -290,7 +364,7 @@
       <div class="steps">
         <div class="step"><div class="num">١</div><h3>سجّل بياناتك</h3><p>عبّي النموذج القصير خلال أقل من دقيقة، أو راسلنا على واتساب.</p></div>
         <div class="step"><div class="num">٢</div><h3>نتواصل معك</h3><p>فريقنا يكلمك ويحدد معك المادة والموعد المناسب.</p></div>
-        <div class="step"><div class="num">٣</div><h3>الحصة المجانية</h3><p>طفلك يحضر الحصة الأولى مجاناً، وتقرر بعدها بكل راحة.</p></div>
+        <div class="step"><div class="num">٣</div><h3>الحصة المجانية والتقرير</h3><p>طفلك يحضر الحصة الأولى مجاناً، وتستلم بعدها تقرير مستواه وخطة تطويره، وتقرر بكل راحة.</p></div>
       </div>
       <div class="ctas" style="justify-content:center;margin-top:34px">
         <a class="btn btn-primary js-form" href="#" data-track="form_steps">احجز الحصة المجانية الآن</a>
@@ -348,7 +422,8 @@
       </div>
       <div class="faq">
         <details open><summary>هل الحصة الأولى مجانية فعلاً؟</summary><p>نعم، الحصة التجريبية الأولى مجانية بالكامل وبدون أي التزام. الهدف إنك تتعرف على المعلم وأسلوبه قبل ما تقرر.</p></details>
-        <details><summary>ماذا يحدث بعد الحصة المجانية؟</summary><p>نتواصل معك ونشاركك ملاحظات المعلم عن مستوى طفلك، وإذا حاب تكمل نرتب لك الباقة والمواعيد المناسبة. وإذا ما ناسبك، ما عليك أي شي.</p></details>
+        <details><summary>ماذا يحتوي التقرير المجاني؟</summary><p>بعد الحصة يكتب المعلم تقريراً خاصاً بطفلك: ملاحظاته خلال الحصة، تقييم مهاراته من 5، نقاط القوة، النقاط اللي تحتاج تطوير، وخطة تعلّم مقسّمة على الحصص بهدف واضح. التقرير مجاني ولك حتى لو ما كمّلت معنا.</p></details>
+        <details><summary>ماذا يحدث بعد الحصة المجانية؟</summary><p>نرسل لك التقرير ونناقشه معك، وإذا حاب تكمل نرتب لك الباقة والمواعيد المناسبة. وإذا ما ناسبك، ما عليك أي شي.</p></details>
         <details><summary>كم سعر الحصة بعد التجربة؟</summary><p>الحصص تبدأ من 33 درهم للحصة الواحدة، ويعتمد السعر على المادة والمرحلة الدراسية. فريقنا يوضح لك كل التفاصيل على واتساب.</p></details>
         <details><summary>ما هي المراحل والمواد اللي تغطونها؟</summary><p>نغطي جميع المواد الدراسية لجميع المراحل من الروضة حتى الثانوية.</p></details>
         <details><summary>كيف أختار الموعد المناسب؟</summary><p>بعد التسجيل يتواصل معك فريقنا لتحديد الموعد اللي يناسب جدول طفلك.</p></details>
@@ -361,7 +436,7 @@
     <div class="wrap">
       <div class="final">
         <h2 id="final-title">جاهز تشوف الفرق مع طفلك؟</h2>
-        <p>احجز الحصة الأولى المجانية اليوم، والمقاعد محدودة.</p>
+        <p>احجز الحصة الأولى المجانية اليوم واستلم تقرير مستوى طفلك مجاناً. المقاعد محدودة.</p>
         <div class="ctas">
           <a class="btn btn-primary js-form" href="#" data-track="form_final">احجز الحصة المجانية</a>
           <a class="btn btn-wa js-wa" href="#" data-track="whatsapp_final">
@@ -435,10 +510,11 @@ var SUBJECTS = {
     document.getElementById("headline").innerHTML =
       'مدرس <span class="hl">' + subj.tutor + '</span> خصوصي لطفلك';
     document.getElementById("subheadline").textContent =
-      "معلمون متخصصون في " + subj.name + " لجميع المراحل الدراسية، يشرحون بأسلوب سهل ويتابعون طفلك حتى يفهم ويرفع درجاته. جرّب أول حصة مجاناً وشوف الفرق بنفسك.";
+      "معلمون متخصصون في " + subj.name + " لجميع المراحل الدراسية، يشرحون بأسلوب سهل ويتابعون طفلك حتى يفهم ويرفع درجاته. احجز أول حصة مجاناً، واستلم بعدها تقريراً مفصّلاً عن مستوى طفلك وخطة واضحة لتطويره.";
     document.getElementById("final-title").textContent =
       "جاهز يتقدّم طفلك في " + subj.name + "؟";
     document.title = "مدرس " + subj.tutor + " خصوصي | أول حصة مجاناً | أقلام";
+    document.getElementById("rep-subject").textContent = subj.name;
   }
 
   // subject chips
